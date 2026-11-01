@@ -4,3 +4,6 @@ dist/
 .vercel/
 assets/raw/
 *.log
+
+.vercel
+.env*
