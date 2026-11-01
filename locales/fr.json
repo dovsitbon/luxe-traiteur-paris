@@ -1,0 +1,411 @@
+{
+  "locale": "fr_FR",
+  "meta": {
+    "home": {
+      "title": "Traiteur haut de gamme à Paris, mariages | Luxe Traiteur",
+      "description": "Traiteur de luxe à Paris et en Île-de-France : mariages, baptêmes, cocktails et repas d'affaires. Buffets, décoration, service et location de salle."
+    },
+    "mariages": {
+      "title": "Traiteur mariage Paris et Île-de-France | Luxe Traiteur",
+      "description": "Vin d'honneur, dîner assis ou buffet, pièce montée et desserts : Luxe Traiteur orchestre votre réception de mariage à Paris, en Île-de-France et partout en France."
+    },
+    "location": {
+      "title": "Location de salle de réception en Île-de-France | Luxe Traiteur",
+      "description": "Louez une salle de réception en Île-de-France avec traiteur, décoration et service compris. Mariages, baptêmes, anniversaires et soirées d'entreprise."
+    },
+    "realisations": {
+      "title": "Nos réceptions : mariages, cocktails, événements | Luxe Traiteur",
+      "description": "Mariages, cocktails dînatoires, buffets et soirées d'entreprise réalisés par Luxe Traiteur à Paris et en Île-de-France. Photos et vidéos de nos réceptions."
+    },
+    "devis": {
+      "title": "Demande de devis traiteur | Luxe Traiteur Paris",
+      "description": "Décrivez votre événement en deux minutes : date, lieu, nombre d'invités, prestations. Nous revenons vers vous avec un menu et un devis sur mesure."
+    },
+    "legal": {
+      "title": "Mentions légales | Luxe Traiteur Paris",
+      "description": "Mentions légales et politique de confidentialité du site Luxe Traiteur Paris."
+    }
+  },
+  "nav": {
+    "skip": "Aller au contenu",
+    "main": "Navigation principale",
+    "menu": "Menu",
+    "close": "Fermer le menu",
+    "home": "Accueil",
+    "services": "Prestations",
+    "weddings": "Mariages",
+    "venue": "Location de salles",
+    "work": "Réalisations",
+    "reviews": "Avis",
+    "contact": "Contact",
+    "quote": "Demander un devis",
+    "langLabel": "Langue du site"
+  },
+  "intro": {
+    "brand": "Luxe Traiteur",
+    "tagline": "L'excellence au service de vos réceptions",
+    "skip": "Passer"
+  },
+  "hero": {
+    "eyebrow": "Traiteur haut de gamme · Paris",
+    "title": "L'excellence au service de vos réceptions",
+    "sub": "Mariages, baptêmes, cocktails et dîners d'affaires. La cuisine, la décoration et le service, pensés ensemble jusqu'au dernier détail.",
+    "ctaQuote": "Demander un devis",
+    "ctaServices": "Découvrir nos prestations",
+    "scroll": "Défiler"
+  },
+  "trust": [
+    "Traiteur premium",
+    "Organisation millimétrée",
+    "Service irréprochable",
+    "Paris, Île-de-France et partout en France"
+  ],
+  "services": {
+    "kicker": "Nos prestations",
+    "title": "Une maison, toutes vos réceptions",
+    "intro": "Du vin d'honneur pour trois cents invités au déjeuner d'affaires en petit comité, nous prenons en charge la table, le décor et le service. Vous recevez, nous nous occupons du reste.",
+    "more": "En savoir plus",
+    "items": [
+      {
+        "id": "mariages",
+        "title": "Mariages",
+        "text": "Vin d'honneur, dîner assis ou buffets, desserts et pièce montée : une réception complète, du premier verre au dernier café."
+      },
+      {
+        "id": "cocktails",
+        "title": "Cocktails et soirées",
+        "text": "Pièces salées et sucrées, verrines, bar à jus et buffets dressés pour une soirée où l'on circule, on goûte et on se retrouve."
+      },
+      {
+        "id": "affaires",
+        "title": "Repas d'affaires",
+        "text": "Séminaires, lancements, déjeuners clients : une prestation ponctuelle, discrète et à l'heure, qui reflète l'image de votre entreprise."
+      },
+      {
+        "id": "familles",
+        "title": "Baptêmes et familles",
+        "text": "Baptêmes, fiançailles, anniversaires et brunchs : des moments de famille servis avec la même exigence qu'un grand mariage."
+      },
+      {
+        "id": "decoration",
+        "title": "Décoration",
+        "text": "Centres de table, art de la table, coin des mariés : nous habillons la salle pour qu'elle ressemble à votre événement."
+      },
+      {
+        "id": "service",
+        "title": "Service",
+        "text": "Maîtres d'hôtel et serveurs en tenue, mise en place, service à l'assiette ou au buffet, débarrassage : une équipe formée et coordonnée."
+      }
+    ]
+  },
+  "weddings": {
+    "kicker": "Mariages",
+    "title": "Le jour J, chaque moment a sa table",
+    "intro": "Un mariage se reçoit en plusieurs temps. Nous construisons avec vous le déroulé, le menu et la mise en scène de chacun, pour que vos invités passent d'un moment à l'autre sans jamais attendre.",
+    "steps": [
+      {
+        "title": "Le vin d'honneur",
+        "text": "Pièces cocktail, ateliers et buffets dressés, bar à jus et rafraîchissements, servis pendant que les photos se font."
+      },
+      {
+        "title": "Le dîner",
+        "text": "Service à l'assiette ou grands buffets, selon votre salle et votre nombre d'invités. Entrée, plat, fromages : le menu se compose avec vous."
+      },
+      {
+        "title": "Le dessert",
+        "text": "Pièce montée, buffet de desserts, mignardises et café, pour terminer la soirée sur une belle table sucrée."
+      }
+    ],
+    "cta": "Préparer mon mariage",
+    "teaser": "Découvrir la réception de mariage",
+    "videoLabel": "Salle de mariage dressée, tables rondes et lustres",
+    "pageTitle": "Traiteur de mariage à Paris et en Île-de-France",
+    "pageIntro": "Depuis le vin d'honneur jusqu'au dessert, nous prenons en charge la cuisine, la décoration de table et le service de votre mariage. Une seule maison, un seul interlocuteur, et une équipe qui connaît votre déroulé par cœur.",
+    "includedTitle": "Ce que nous prenons en charge",
+    "included": [
+      "Création d'un menu sur mesure, ajusté avec vous",
+      "Buffets et pièces cocktail du vin d'honneur",
+      "Dîner servi à l'assiette ou en buffets",
+      "Desserts, pièce montée et mignardises",
+      "Art de la table, centres de table et coin des mariés",
+      "Maîtres d'hôtel, serveurs et coordination le jour J"
+    ],
+    "galleryTitle": "Quelques réceptions de mariage"
+  },
+  "table": {
+    "kicker": "La table",
+    "title": "L'élégance se cache dans les détails",
+    "intro": "Pièces cocktail, buffets et desserts : une cuisine généreuse, dressée avec soin et pensée pour être belle autant que bonne. Nos menus sont composés sur mesure, c'est pourquoi nous ne publions pas de tarifs.",
+    "cta": "Composer mon menu"
+  },
+  "venue": {
+    "kicker": "Lieu et location",
+    "title": "Une salle pour recevoir, le traiteur en plus",
+    "intro": "Vous n'avez pas encore de lieu ? Nous mettons à votre disposition une salle de réception en Île-de-France, avec la cuisine, la décoration et le service dans la même prestation.",
+    "facts": [
+      {
+        "label": "Capacité",
+        "value": "À préciser"
+      },
+      {
+        "label": "Adresse",
+        "value": "Île-de-France, à préciser"
+      },
+      {
+        "label": "Formats",
+        "value": "Mariage, baptême, anniversaire, soirée d'entreprise"
+      }
+    ],
+    "equipmentTitle": "Équipements",
+    "equipment": [
+      "Liste à compléter avec le client",
+      "Cuisine de préparation pour notre équipe",
+      "Tables, chaises et art de la table fournis"
+    ],
+    "cta": "Visiter ou réserver la salle",
+    "ctaMsg": "Bonjour, je souhaite visiter ou réserver votre salle de réception. Date envisagée : ",
+    "more": "Voir la salle",
+    "note": "Photos, nom et capacité de la salle à venir.",
+    "pageTitle": "Location de salle de réception en Île-de-France",
+    "pageIntro": "Recevoir dans un lieu pensé pour la réception, avec une équipe qui le connaît : c'est ce que nous proposons avec notre salle. Le traiteur, la décoration et le service sont compris dans la même demande de devis.",
+    "whyTitle": "Pourquoi réserver la salle avec le traiteur",
+    "why": [
+      {
+        "title": "Un seul interlocuteur",
+        "text": "Le lieu, la cuisine, le décor et le service sont coordonnés par la même équipe."
+      },
+      {
+        "title": "Une équipe qui connaît le lieu",
+        "text": "Mise en place, circulation du service, horaires : tout est rodé."
+      },
+      {
+        "title": "Un devis global",
+        "text": "Vous savez dès le départ ce que comprend votre réception."
+      }
+    ]
+  },
+  "work": {
+    "kicker": "Réalisations",
+    "title": "Nos dernières réceptions",
+    "intro": "Mariages en grande salle, cocktails, buffets de desserts et soirées : un aperçu de ce que nous avons servi ces derniers mois.",
+    "all": "Tout",
+    "filters": {
+      "mariages": "Mariages",
+      "cocktails": "Cocktails",
+      "entreprises": "Entreprises",
+      "baptemes": "Baptêmes",
+      "anniversaires": "Anniversaires"
+    },
+    "empty": "Les photos de cette catégorie arrivent bientôt. En attendant, retrouvez nos dernières réceptions sur Instagram.",
+    "seeAll": "Voir toutes les réalisations",
+    "instagram": "Suivre @luxetraiteurparis",
+    "open": "Agrandir",
+    "close": "Fermer",
+    "prev": "Précédent",
+    "next": "Suivant",
+    "video": "Vidéo",
+    "pageTitle": "Nos réceptions à Paris et en Île-de-France"
+  },
+  "craft": {
+    "kicker": "Notre savoir-faire",
+    "title": "Chaque service est millimétré, chaque saveur maîtrisée",
+    "paragraphs": [
+      "Une belle réception ne doit rien au hasard. Avant le jour J, nous calons avec vous le déroulé minute par minute, le nombre de pièces par invité, le placement des buffets et le rôle de chaque membre de l'équipe.",
+      "En cuisine, tout est préparé et dressé par nos soins. En salle, nos maîtres d'hôtel connaissent le menu, les allergies signalées et les moments clés de la soirée. Vous n'avez à penser qu'à vos invités."
+    ],
+    "points": [
+      {
+        "title": "Organisation",
+        "text": "Un déroulé écrit, validé avec vous, partagé avec toute l'équipe."
+      },
+      {
+        "title": "Service",
+        "text": "Des maîtres d'hôtel en tenue, attentifs et discrets."
+      },
+      {
+        "title": "Saveurs",
+        "text": "Des menus composés sur mesure, généreux et soignés."
+      }
+    ],
+    "aside": "L'art de cuisiner… ou de se défendre contre le beurre fondu.",
+    "videoLabel": "En cuisine, le dressage des desserts avant le service"
+  },
+  "steps": {
+    "kicker": "Comment ça marche",
+    "title": "Trois étapes, et nous nous occupons du reste",
+    "items": [
+      {
+        "title": "Vous nous parlez de votre événement",
+        "text": "Date, lieu, nombre d'invités, envies : quelques minutes au téléphone, sur WhatsApp ou via le formulaire."
+      },
+      {
+        "title": "Nous vous proposons un menu et un devis",
+        "text": "Une proposition sur mesure, que nous ajustons ensemble jusqu'à ce qu'elle vous ressemble."
+      },
+      {
+        "title": "Le jour J, nous nous occupons de tout",
+        "text": "Installation, cuisine, service et débarrassage. Vous profitez de votre réception."
+      }
+    ]
+  },
+  "reviews": {
+    "kicker": "Avis clients",
+    "title": "Ils nous ont confié leur réception",
+    "intro": "Les avis de nos clients sont rassemblés dans nos stories à la une sur Instagram. Ils seront bientôt publiés ici.",
+    "placeholder": "Avis client à venir",
+    "cta": "Lire les avis sur Instagram"
+  },
+  "quote": {
+    "kicker": "Demande de devis",
+    "title": "Parlez-nous de votre réception",
+    "intro": "Deux minutes suffisent. Nous revenons vers vous rapidement avec une première proposition.",
+    "progress": "Étape {n} sur {total}",
+    "back": "Retour",
+    "next": "Continuer",
+    "submit": "Envoyer sur WhatsApp",
+    "email": "Envoyer plutôt par e-mail",
+    "required": "Merci de remplir ce champ.",
+    "sent": "Merci, votre demande est envoyée. Nous vous recontactons rapidement.",
+    "error": "L'envoi n'a pas fonctionné. Écrivez-nous directement sur WhatsApp ou au 06 26 82 55 46.",
+    "privacy": "Vos coordonnées servent uniquement à vous répondre.",
+    "steps": {
+      "event": "Votre événement",
+      "details": "Date et lieu",
+      "guests": "Invités et budget",
+      "services": "Prestations",
+      "contact": "Vos coordonnées"
+    },
+    "fields": {
+      "type": "Type d'événement",
+      "types": [
+        "Mariage",
+        "Baptême",
+        "Cocktail ou soirée",
+        "Repas d'affaires",
+        "Anniversaire ou brunch",
+        "Autre"
+      ],
+      "date": "Date de l'événement",
+      "dateUnknown": "Date pas encore fixée",
+      "place": "Lieu",
+      "placeOptions": [
+        "J'ai déjà un lieu",
+        "Je cherche une salle"
+      ],
+      "address": "Ville ou nom du lieu",
+      "addressHint": "Par exemple : Paris 8e, Château de…",
+      "guests": "Nombre d'invités",
+      "budget": "Budget indicatif",
+      "budgets": [
+        "Moins de 5 000 €",
+        "5 000 à 10 000 €",
+        "10 000 à 20 000 €",
+        "Plus de 20 000 €",
+        "Je ne sais pas encore"
+      ],
+      "services": "Prestations souhaitées",
+      "serviceOptions": [
+        "Vin d'honneur ou cocktail",
+        "Dîner",
+        "Buffets",
+        "Desserts et pièce montée",
+        "Décoration",
+        "Maîtres d'hôtel et serveurs",
+        "Location de salle"
+      ],
+      "message": "Précisions (facultatif)",
+      "messageHint": "Thème, régimes particuliers, déroulé envisagé…",
+      "name": "Nom et prénom",
+      "phone": "Téléphone",
+      "emailField": "E-mail"
+    },
+    "wa": {
+      "hello": "Bonjour Luxe Traiteur, je souhaite un devis.",
+      "type": "Événement",
+      "date": "Date",
+      "place": "Lieu",
+      "guests": "Invités",
+      "budget": "Budget",
+      "services": "Prestations",
+      "message": "Précisions",
+      "contact": "Contact"
+    },
+    "waOpened": "WhatsApp s'ouvre avec votre demande déjà rédigée : il ne reste qu'à l'envoyer."
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Une date en tête ?",
+    "text": "Appelez-nous ou écrivez-nous sur WhatsApp. Nous vous répondons rapidement.",
+    "phone": "Téléphone",
+    "whatsapp": "WhatsApp",
+    "instagram": "Instagram",
+    "zone": "Zone d'intervention",
+    "zoneText": "Paris, Île-de-France et partout en France",
+    "waMsg": "Bonjour Luxe Traiteur, je souhaite des informations pour une réception."
+  },
+  "footer": {
+    "signature": "L'excellence au service de vos réceptions",
+    "list": "Mariages · Baptêmes · Événements · Traiteur · Décoration · Service",
+    "nav": "Le site",
+    "legal": "Mentions légales",
+    "rights": "Tous droits réservés.",
+    "credit": "Photos et vidéos : réceptions Luxe Traiteur."
+  },
+  "fab": "Écrire sur WhatsApp",
+  "legalPage": {
+    "title": "Mentions légales",
+    "sections": [
+      {
+        "h": "Éditeur du site",
+        "p": "Luxe Traiteur Paris. Raison sociale, forme juridique, SIRET et adresse du siège : à compléter. Téléphone : 06 26 82 55 46."
+      },
+      {
+        "h": "Hébergement",
+        "p": "Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis."
+      },
+      {
+        "h": "Propriété intellectuelle",
+        "p": "Les textes, photos, vidéos et le logo de ce site appartiennent à Luxe Traiteur Paris. Toute reproduction sans autorisation est interdite."
+      },
+      {
+        "h": "Données personnelles",
+        "p": "Les informations envoyées par le formulaire de devis (nom, téléphone, e-mail, détails de l'événement) servent uniquement à répondre à votre demande. Elles ne sont ni revendues ni utilisées à d'autres fins. Vous pouvez demander leur suppression à tout moment par téléphone ou WhatsApp."
+      },
+      {
+        "h": "Cookies",
+        "p": "Ce site n'utilise pas de cookies publicitaires ni de mesure d'audience. Votre choix de langue est seulement mémorisé dans votre navigateur."
+      }
+    ]
+  },
+  "media": {
+    "mariages/salle-tables-rondes": "Salle de mariage dressée, tables rondes et chaises dorées sous les lustres",
+    "mariages/table-honneur-fleurs": "Table d'honneur fleurie et bougies dans une galerie à arcades",
+    "mariages/vin-honneur-palmiers": "Vin d'honneur servi sous les arcades, invités autour du buffet",
+    "mariages/soiree-salle-comble": "Soirée de mariage, invités réunis dans la grande salle",
+    "mariages/salle-centre-de-table": "Centres de table de roses blanches et couverts dressés",
+    "mariages/soiree-guirlandes": "Soirée dansante sous les guirlandes lumineuses",
+    "buffets-et-plats/buffet-lustres": "Buffet de viennoiseries salées et pièces cocktail sous les lustres",
+    "buffets-et-plats/buffet-desserts-bougies": "Buffet de desserts aux chandelles",
+    "buffets-et-plats/buffet-invites": "Invités au buffet pendant la réception",
+    "buffets-et-plats/grand-buffet-salle": "Grand buffet dressé sur toute la longueur de la salle",
+    "buffets-et-plats/desserts-roses": "Pâtisseries et donuts sur présentoirs",
+    "cocktails/bar-a-jus": "Bar à jus de fruits frais et fontaines",
+    "cocktails/canapes": "Canapés et sandwichs pour le cocktail",
+    "cocktails/buffet-colore": "Buffet cocktail fleuri, verrines colorées",
+    "cocktails/macarons": "Macarons sur présentoir de verre",
+    "cocktails/mini-burgers": "Mini-burgers et pièces cocktail chaudes",
+    "cocktails/plateau-sushis": "Plateaux de sushis et makis",
+    "cocktails/sushis-presentation": "Barque de sushis présentée sur le buffet",
+    "cocktails/verrines-jus": "Verrines et jus servis au vin d'honneur",
+    "decoration/coin-maries": "Coin des mariés, banquette, voilages et lanternes",
+    "decoration/assiette-serviette-noire": "Assiette dressée, serviette noire et bijou de serviette",
+    "service-et-coulisses/maitre-hotel-plateaux": "Maître d'hôtel en tenue servant les assiettes",
+    "service-et-coulisses/chef-dressage": "Le chef dresse le buffet de desserts",
+    "service-et-coulisses/brigade-verrines": "La brigade prépare les verrines avant le service",
+    "service-et-coulisses/organisation-equipe": "Briefing de l'équipe avant la réception"
+  },
+  "video": {
+    "pause": "Mettre les vidéos en pause",
+    "play": "Relancer les vidéos"
+  }
+}

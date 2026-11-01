@@ -1,0 +1,23 @@
+# Luxe Traiteur Paris
+
+> Traiteur de luxe à Paris et en Île-de-France : mariages, baptêmes, cocktails et repas d'affaires. Buffets, décoration, service et location de salle.
+
+Traiteur haut de gamme basé à Paris, intervenant en Île-de-France et partout en France. Signature : « L'excellence au service de vos réceptions ».
+Téléphone et WhatsApp : 06 26 82 55 46 (+33626825546). Instagram : https://www.instagram.com/luxetraiteurparis/
+Tarifs : sur devis uniquement (menus composés sur mesure).
+
+## Prestations
+- Mariages : Vin d'honneur, dîner assis ou buffets, desserts et pièce montée : une réception complète, du premier verre au dernier café.
+- Cocktails et soirées : Pièces salées et sucrées, verrines, bar à jus et buffets dressés pour une soirée où l'on circule, on goûte et on se retrouve.
+- Repas d'affaires : Séminaires, lancements, déjeuners clients : une prestation ponctuelle, discrète et à l'heure, qui reflète l'image de votre entreprise.
+- Baptêmes et familles : Baptêmes, fiançailles, anniversaires et brunchs : des moments de famille servis avec la même exigence qu'un grand mariage.
+- Décoration : Centres de table, art de la table, coin des mariés : nous habillons la salle pour qu'elle ressemble à votre événement.
+- Service : Maîtres d'hôtel et serveurs en tenue, mise en place, service à l'assiette ou au buffet, débarrassage : une équipe formée et coordonnée.
+
+## Pages
+- [Accueil](https://luxe-traiteur-paris.vercel.app/fr/)
+- [Traiteur de mariage](https://luxe-traiteur-paris.vercel.app/fr/mariages/)
+- [Location de salle de réception](https://luxe-traiteur-paris.vercel.app/fr/location-de-salles/)
+- [Réalisations](https://luxe-traiteur-paris.vercel.app/fr/realisations/)
+- [Demande de devis](https://luxe-traiteur-paris.vercel.app/fr/devis/)
+- [English version](https://luxe-traiteur-paris.vercel.app/en/)

@@ -1,0 +1,222 @@
+{
+ "mariages/salle-centre-de-table": {
+  "w": 799,
+  "h": 513,
+  "widths": [
+   480,
+   799
+  ]
+ },
+ "mariages/salle-tables-rondes": {
+  "w": 1080,
+  "h": 720,
+  "widths": [
+   480,
+   960,
+   1080
+  ]
+ },
+ "mariages/soiree-guirlandes": {
+  "w": 720,
+  "h": 900,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "mariages/soiree-salle-comble": {
+  "w": 950,
+  "h": 594,
+  "widths": [
+   480,
+   950
+  ]
+ },
+ "mariages/table-honneur-fleurs": {
+  "w": 720,
+  "h": 793,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "mariages/vin-honneur-palmiers": {
+  "w": 720,
+  "h": 1050,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "buffets-et-plats/buffet-desserts-bougies": {
+  "w": 660,
+  "h": 822,
+  "widths": [
+   480,
+   660
+  ]
+ },
+ "buffets-et-plats/buffet-invites": {
+  "w": 940,
+  "h": 330,
+  "widths": [
+   480,
+   940
+  ]
+ },
+ "buffets-et-plats/buffet-lustres": {
+  "w": 720,
+  "h": 1050,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "buffets-et-plats/desserts-roses": {
+  "w": 576,
+  "h": 1024,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "buffets-et-plats/grand-buffet-salle": {
+  "w": 576,
+  "h": 864,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "cocktails/bar-a-jus": {
+  "w": 691,
+  "h": 647,
+  "widths": [
+   480,
+   691
+  ]
+ },
+ "cocktails/buffet-colore": {
+  "w": 478,
+  "h": 477,
+  "widths": [
+   478
+  ]
+ },
+ "cocktails/canapes": {
+  "w": 576,
+  "h": 435,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "cocktails/macarons": {
+  "w": 576,
+  "h": 769,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "cocktails/mini-burgers": {
+  "w": 478,
+  "h": 532,
+  "widths": [
+   478
+  ]
+ },
+ "cocktails/plateau-sushis": {
+  "w": 576,
+  "h": 435,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "cocktails/sushis-presentation": {
+  "w": 415,
+  "h": 692,
+  "widths": [
+   415
+  ]
+ },
+ "cocktails/verrines-jus": {
+  "w": 980,
+  "h": 1740,
+  "widths": [
+   480,
+   960,
+   980
+  ]
+ },
+ "decoration/assiette-serviette-noire": {
+  "w": 827,
+  "h": 808,
+  "widths": [
+   480,
+   827
+  ]
+ },
+ "decoration/coin-maries": {
+  "w": 950,
+  "h": 618,
+  "widths": [
+   480,
+   950
+  ]
+ },
+ "service-et-coulisses/brigade-verrines": {
+  "w": 980,
+  "h": 1740,
+  "widths": [
+   480,
+   960,
+   980
+  ]
+ },
+ "service-et-coulisses/chef-dressage": {
+  "w": 576,
+  "h": 1024,
+  "widths": [
+   480,
+   576
+  ]
+ },
+ "service-et-coulisses/maitre-hotel-plateaux": {
+  "w": 626,
+  "h": 860,
+  "widths": [
+   480,
+   626
+  ]
+ },
+ "service-et-coulisses/organisation-equipe": {
+  "w": 720,
+  "h": 870,
+  "widths": [
+   480,
+   720
+  ]
+ },
+ "videos/coulisses-chef": {
+  "w": 540,
+  "h": 960
+ },
+ "videos/hero-brigade": {
+  "w": 540,
+  "h": 958
+ },
+ "videos/hero-buffet": {
+  "w": 540,
+  "h": 662
+ },
+ "videos/hero-table": {
+  "w": 540,
+  "h": 662
+ },
+ "videos/salle-mariage": {
+  "w": 960,
+  "h": 640
+ }
+}
