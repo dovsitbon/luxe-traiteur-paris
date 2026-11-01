@@ -3,10 +3,10 @@
   "outputDirectory": "dist",
   "trailingSlash": true,
   "redirects": [
-    { "source": "/mariages", "destination": "/fr/mariages/", "permanent": true },
-    { "source": "/devis", "destination": "/fr/devis/", "permanent": true },
-    { "source": "/location-de-salles", "destination": "/fr/location-de-salles/", "permanent": true },
-    { "source": "/mentions-legales", "destination": "/fr/mentions-legales/", "permanent": true }
+    { "source": "/mariages/", "destination": "/fr/mariages/", "permanent": true },
+    { "source": "/devis/", "destination": "/fr/devis/", "permanent": true },
+    { "source": "/location-de-salles/", "destination": "/fr/location-de-salles/", "permanent": true },
+    { "source": "/mentions-legales/", "destination": "/fr/mentions-legales/", "permanent": true }
   ],
   "headers": [
     { "source": "/media/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=2592000" }] },
