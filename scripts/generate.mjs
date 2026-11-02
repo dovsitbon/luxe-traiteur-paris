@@ -23,7 +23,7 @@ const PHONE_INTL = "+33626825546";
 const WA = "https://wa.me/33626825546";
 const INSTAGRAM = "https://www.instagram.com/luxetraiteurparis/";
 // Polices chargées sans bloquer le rendu (le texte s'affiche d'abord dans la police de secours).
-const FONTS = "https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap";
+const FONTS = "https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;1,300&family=Open+Sans:wght@300;400;600&display=swap";
 
 // Pages et leurs adresses dans chaque langue.
 const PAGES = {
@@ -69,7 +69,6 @@ const VIDEO_ALT = { "videos/salle-mariage": "weddings", "videos/hero-buffet": "h
 
 const esc = (s) => String(s ?? "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const fill = (s, vars) => String(s).replace(/\{(\w+)\}/g, (_, k) => vars[k] ?? "");
-const roman = (n) => ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"][n];
 const waLink = (text) => `${WA}?text=${encodeURIComponent(text)}`;
 const alt = (lang, key) => L[lang].media[key] || "";
 
@@ -86,7 +85,9 @@ const big = (key) => `/media/${key}-${SIZES[key].widths[SIZES[key].widths.length
 /** Vidéo d'ambiance muette en boucle, lancée quand elle est visible (data-autoplay) ou au survol (data-hover). */
 const video = (name, label, cls = "", mode = "autoplay") => {
   const m = SIZES[`videos/${name}`];
-  return `<video class="${cls}" muted loop playsinline preload="none" poster="/media/videos/${name}.webp" width="${m.w}" height="${m.h}" data-${mode}${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><source src="/media/videos/${name}.webm" type="video/webm"><source src="/media/videos/${name}.mp4" type="video/mp4"></video>`;
+  // Vidéo différée du haut de page : pas d'affiche, la photo est déjà dessous.
+  const poster = mode === "deferred" ? "" : ` poster="/media/videos/${name}.webp"`;
+  return `<video class="${cls}" muted loop playsinline preload="none"${poster} width="${m.w}" height="${m.h}" data-${mode}${label ? ` aria-label="${esc(label)}"` : ' aria-hidden="true"'}><source src="/media/videos/${name}.webm" type="video/webm"><source src="/media/videos/${name}.mp4" type="video/mp4"></video>`;
 };
 
 const icon = {
@@ -99,13 +100,12 @@ const icon = {
   next: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
   play: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5Z"/></svg>',
   pause: '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg>',
+  pin: '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 29s9-8.6 9-15.5a9 9 0 0 0-18 0C7 20.4 16 29 16 29Z"/><circle cx="16" cy="13.5" r="3.2"/></svg>',
+  menu: '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h16v24H8z"/><path d="M12 10h8M12 15h8M12 20h5"/></svg>',
+  service: '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M5 23h22M7 23a9 9 0 0 1 18 0"/><path d="M16 14v-2M14 12h4M4 27h24"/></svg>',
 };
 // Bouton pause des vidéos en boucle (au-delà de 5 s, WCAG 2.2.2).
 const pauseBtn = (lang, cls = "") => `<button type="button" class="vtoggle ${cls}" data-video-toggle aria-pressed="false" aria-label="${esc(L[lang].video.pause)}" data-pause="${esc(L[lang].video.pause)}" data-play="${esc(L[lang].video.play)}">${icon.pause}${icon.play}</button>`;
-// Petite couronne d'ornement (trait fin), reprise du logo.
-const crown = '<svg class="crown" viewBox="0 0 40 22" aria-hidden="true"><path d="M3 17 1.5 6l9 6L20 2l9.5 10 9-6L37 17Z"/><path d="M4 20.5h32"/><circle cx="20" cy="2" r="1.2"/><circle cx="1.5" cy="6" r="1"/><circle cx="38.5" cy="6" r="1"/></svg>';
-
-const kicker = (n, text) => `<p class="kicker"><span class="kicker__n">${roman(n)}</span><span class="kicker__line" aria-hidden="true"></span>${esc(text)}</p>`;
 
 /* ------------------------------------------------------------------ <head> et données structurées */
 
@@ -138,7 +138,7 @@ ${alternates}
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#0B0B0B">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.png" type="image/png" sizes="64x64">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -174,8 +174,8 @@ function business(lang) {
     areaServed: [{ "@type": "City", name: "Paris" }, { "@type": "AdministrativeArea", name: "Île-de-France" }, { "@type": "Country", name: "France" }],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
-      name: t.services.title,
-      itemListElement: t.services.items.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title, description: s.text, serviceType: "Catering" } })),
+      name: t.receptions.title,
+      itemListElement: t.receptions.items.map((s) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name: s.title, description: s.text, serviceType: "Catering" } })),
     },
     sameAs: [INSTAGRAM],
     knowsLanguage: ["fr", "en"],
@@ -211,237 +211,210 @@ function breadcrumb(lang, page) {
 function header(lang, page) {
   const t = L[lang];
   const links = [
-    [href(lang, "home"), t.nav.home, page === "home"],
-    [href(lang, "home", "#prestations"), t.nav.services],
+    [href(lang, "home", "#receptions"), t.nav.services],
     [href(lang, "mariages"), t.nav.weddings, page === "mariages"],
     [href(lang, "location"), t.nav.venue, page === "location"],
     [href(lang, "realisations"), t.nav.work, page === "realisations"],
-    [href(lang, "home", "#avis"), t.nav.reviews],
     [href(lang, "home", "#contact"), t.nav.contact],
   ];
   const nav = links.map(([h, label, cur]) => `<li><a href="${h}"${cur ? ' aria-current="page"' : ""}>${esc(label)}</a></li>`).join("");
-  const switcher = `<div class="lang" role="group" aria-label="${esc(t.nav.langLabel)}">${LANGS.map((l, i) => `${i ? '<span aria-hidden="true">·</span>' : ""}<a href="${href(l, page)}" hreflang="${l}" lang="${l}" data-lang="${l}"${l === lang ? ' aria-current="true"' : ""}>${l.toUpperCase()}</a>`).join("")}</div>`;
+  const switcher = `<div class="lang" role="group" aria-label="${esc(t.nav.langLabel)}">${LANGS.map((l, i) => `${i ? '<span aria-hidden="true">|</span>' : ""}<a href="${href(l, page)}" hreflang="${l}" lang="${l}" data-lang="${l}"${l === lang ? ' aria-current="true"' : ""}>${l.toUpperCase()}</a>`).join("")}</div>`;
   return `<a class="skip" href="#main">${esc(t.nav.skip)}</a>
 <header class="header${page === "home" ? " header--over" : ""}" data-header>
   <div class="header__inner">
     <a class="brand" href="/${lang}/" aria-label="Luxe Traiteur Paris, ${esc(t.nav.home)}">
-      <img src="/media/logo/embleme.webp" width="240" height="177" alt="">
-      <span class="brand__word" aria-hidden="true" translate="no">Luxe Traiteur<small>Paris</small></span>
+      <img class="brand__light" src="/media/logo/embleme.webp" width="240" height="177" alt="">
+      <img class="brand__dark" src="/media/logo/embleme-fonce.webp" width="240" height="177" alt="">
+      <span class="brand__word" aria-hidden="true" translate="no">Luxe Traiteur <small>Paris</small></span>
     </a>
     <nav class="header__nav" aria-label="${esc(t.nav.main)}"><ul>${nav}</ul></nav>
     <div class="header__tools">
       ${switcher}
-      <a class="btn btn--gold btn--sm header__cta" href="${href(lang, "devis")}">${esc(t.nav.quote)}</a>
+      <a class="header__phone" href="tel:${PHONE_INTL}">${icon.phone}<span>${PHONE}</span></a>
+      <a class="btn btn--sm header__cta" href="${href(lang, "devis")}">${esc(t.nav.quote)}</a>
       <button class="burger" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle><span class="sr" data-open="${esc(t.nav.menu)}" data-close="${esc(t.nav.close)}">${esc(t.nav.menu)}</span><i></i><i></i></button>
     </div>
   </div>
   <div class="menu" id="menu" hidden>
     <ul>${nav}</ul>
     ${switcher}
-    <a class="btn btn--gold" href="${href(lang, "devis")}">${esc(t.nav.quote)}</a>
+    <a class="btn btn--solid" href="${href(lang, "devis")}">${esc(t.nav.quote)}</a>
     <a class="menu__phone" href="tel:${PHONE_INTL}">${icon.phone}${PHONE}</a>
   </div>
 </header>`;
 }
 
+/** Ouverture courte : la couronne se dessine, le monogramme apparaît avec un reflet, puis la page s'ouvre. */
 function intro(lang) {
   const t = L[lang].intro;
-  const words = t.tagline.split(" ").map((w, i) => `<span style="--i:${i}">${esc(w)}</span>`).join(" ");
-  const sparks = Array.from({ length: 14 }, (_, i) => {
-    const x = (i * 37 + 11) % 100, y = (i * 53 + 23) % 100;
-    return `<i style="--x:${x}%;--y:${y}%;--s:${0.5 + ((i * 7) % 5) / 5};--d:${((i * 13) % 10) / 10}"></i>`;
-  }).join("");
   return `<div class="intro" data-intro aria-hidden="true">
-  <div class="intro__sparks">${sparks}</div>
   <div class="intro__stage">
     <div class="intro__crown">
-      <img class="intro__crown-line" src="/media/logo/couronne-trait.webp" width="460" height="260" alt="">
-      <img class="intro__crown-fill" src="/media/logo/couronne.webp" width="460" height="260" alt="">
+      <img class="intro__crown-line" src="/media/logo/couronne-trait-fonce.webp" width="460" height="260" alt="">
+      <img class="intro__crown-fill" src="/media/logo/couronne-fonce.webp" width="460" height="260" alt="">
     </div>
-    <div class="intro__mono"><img src="/media/logo/monogramme.webp" width="570" height="290" alt=""><span class="intro__shine"></span></div>
+    <div class="intro__mono"><img src="/media/logo/monogramme-fonce.webp" width="570" height="290" alt=""><span class="intro__shine"></span></div>
     <p class="intro__brand">${esc(t.brand)}</p>
-    <p class="intro__tagline">${words}</p>
+    <p class="intro__tagline">${esc(t.tagline)}</p>
   </div>
   <button class="intro__skip" type="button" data-intro-skip>${esc(t.skip)}</button>
 </div>`;
 }
 
+function reassure(lang) {
+  const icons = [icon.pin, icon.menu, icon.service, icon.wa];
+  const hrefs = [null, null, null, waLink(L[lang].contact.waMsg)];
+  return `<section class="reassure" aria-label="Luxe Traiteur">
+  <ul class="wrap reassure__list">
+    ${L[lang].reassure.map((r, i) => {
+      const inner = `<span class="reassure__icon">${icons[i]}</span><strong>${esc(r.title)}</strong><span>${esc(r.text)}</span>`;
+      return `<li>${hrefs[i] ? `<a href="${hrefs[i]}" target="_blank" rel="noopener">${inner}</a>` : inner}</li>`;
+    }).join("")}
+  </ul>
+</section>`;
+}
+
 function footer(lang, page) {
   const t = L[lang];
-  const links = [["home", t.nav.home], ["mariages", t.nav.weddings], ["location", t.nav.venue], ["realisations", t.nav.work], ["devis", t.nav.quote], ["legal", t.footer.legal]];
-  return `<footer class="footer">
+  const col1 = [["mariages", t.nav.weddings], ["location", t.nav.venue], ["realisations", t.nav.work]];
+  const col2 = [["devis", t.nav.quote], ["legal", t.footer.legal]];
+  const list = (items) => `<ul class="footer__links">${items.map(([p, label]) => `<li><a href="${href(lang, p)}"${p === page ? ' aria-current="page"' : ""}>${esc(label)}</a></li>`).join("")}</ul>`;
+  return `${reassure(lang)}
+<footer class="footer">
   <div class="wrap footer__grid">
-    <div class="footer__brand">
-      <img src="/media/logo/logo-or.webp" width="640" height="461" alt="Luxe Traiteur" loading="lazy">
-      <p class="footer__list">${esc(t.footer.list)}</p>
-    </div>
-    <div>
-      <p class="eyebrow">${esc(t.contact.kicker)}</p>
-      <ul class="footer__links">
-        <li><a href="tel:${PHONE_INTL}">${icon.phone}${PHONE}</a></li>
-        <li><a href="${waLink(t.contact.waMsg)}" target="_blank" rel="noopener">${icon.wa}WhatsApp</a></li>
-        <li><a href="${INSTAGRAM}" target="_blank" rel="noopener">${icon.ig}@luxetraiteurparis</a></li>
+    <a class="footer__brand" href="/${lang}/" aria-label="Luxe Traiteur Paris">
+      <img src="/media/logo/embleme-fonce.webp" width="240" height="177" alt="" loading="lazy">
+    </a>
+    <nav aria-label="${esc(t.footer.nav)}">${list(col1)}</nav>
+    <div>${list(col2)}</div>
+    <div class="footer__contact">
+      <a href="tel:${PHONE_INTL}">${PHONE}</a>
+      <p>${esc(t.contact.zoneText)}</p>
+      <ul class="footer__social">
+        <li><a href="${INSTAGRAM}" target="_blank" rel="noopener" aria-label="Instagram">${icon.ig}</a></li>
+        <li><a href="${waLink(t.contact.waMsg)}" target="_blank" rel="noopener" aria-label="WhatsApp">${icon.wa}</a></li>
       </ul>
-      <p class="footer__zone"><span class="eyebrow">${esc(t.contact.zone)}</span>${esc(t.contact.zoneText)}</p>
     </div>
-    <nav aria-label="${esc(t.footer.nav)}">
-      <p class="eyebrow">${esc(t.footer.nav)}</p>
-      <ul class="footer__links">${links.map(([p, label]) => `<li><a href="${href(lang, p)}"${p === page ? ' aria-current="page"' : ""}>${esc(label)}</a></li>`).join("")}</ul>
-    </nav>
   </div>
-  <div class="wrap footer__base">
-    <p>© ${new Date().getFullYear()} Luxe Traiteur Paris. ${esc(t.footer.rights)}</p>
+  <div class="footer__base">
+    <p>© ${new Date().getFullYear()} Luxe Traiteur Paris</p>
+    <a href="${href(lang, "legal")}">${esc(t.footer.legal)}</a>
     <p>${esc(t.footer.credit)}</p>
   </div>
 </footer>
 <a class="fab" href="${waLink(t.contact.waMsg)}" target="_blank" rel="noopener" aria-label="${esc(t.fab)}">${icon.wa}</a>`;
 }
 
-/* ------------------------------------------------------------------ sections */
+/* ------------------------------------------------------------------ sections de l'accueil */
 
 function hero(lang) {
   const t = L[lang].hero;
+  // Une seule image plein écran (la salle dressée), qui s'anime en vidéo courte une fois la page chargée.
   return `<section class="hero" aria-labelledby="hero-title" data-videos>
   <div class="hero__media">
-    ${video("hero-buffet", "", "hero__video hero__video--a")}
-    ${video("hero-brigade", "", "hero__video hero__video--b")}
-    ${video("hero-table", "", "hero__video hero__video--c")}
+    ${pic("mariages/salle-tables-rondes", "", { eager: true, cls: "hero__still" })}
+    ${video("salle-mariage", "", "hero__video", "deferred")}
   </div>
   <div class="hero__shade"></div>
   <div class="hero__content">
-    <h1 id="hero-title" class="hero__h1"><span class="hero__eyebrow">${crown}<span>${esc(t.eyebrow)}</span></span><span class="hero__title">${esc(t.title)}</span></h1>
-    <p class="hero__sub">${esc(t.sub)}</p>
-    <div class="hero__ctas">
-      <a class="btn btn--gold" href="${href(lang, "devis")}">${esc(t.ctaQuote)}</a>
-      <a class="btn btn--ghost" href="#prestations">${esc(t.ctaServices)}</a>
-    </div>
+    <p class="hero__eyebrow">${esc(t.eyebrow)}</p>
+    <h1 id="hero-title" class="hero__title">${esc(t.title)}</h1>
+    <a class="btn btn--white" href="${href(lang, "devis")}">${esc(t.cta)}</a>
   </div>
-  ${pauseBtn(lang, "vtoggle--hero")}
-  <a class="hero__scroll" href="#prestations"><span>${esc(t.scroll)}</span><i aria-hidden="true"></i></a>
 </section>`;
 }
 
-function trust(lang) {
-  const items = L[lang].trust.map((s) => `<li>${esc(s)}</li>`).join("");
-  // Liste doublée pour le défilement continu ; la copie est ignorée des lecteurs d'écran.
-  return `<div class="trust"><ul>${items}</ul><ul aria-hidden="true">${items}</ul></div>`;
-}
-
-const SERVICE_IMG = {
-  mariages: "mariages/salle-tables-rondes",
+const RECEPTION_IMG = {
+  mariages: "mariages/table-honneur-fleurs",
   cocktails: "cocktails/buffet-colore",
   affaires: "cocktails/canapes",
   familles: "buffets-et-plats/desserts-roses",
-  decoration: "decoration/assiette-serviette-noire",
-  service: "service-et-coulisses/maitre-hotel-plateaux",
 };
-const SERVICE_TYPE = { mariages: 0, cocktails: 2, affaires: 3, familles: 1, decoration: 0, service: 0 };
+const RECEPTION_TYPE = { mariages: 0, cocktails: 2, affaires: 3, familles: 1 };
 
-function services(lang, n) {
-  const t = L[lang].services;
-  return `<section class="section section--dark services" id="prestations" aria-labelledby="services-title">
+function receptions(lang) {
+  const t = L[lang].receptions;
+  return `<section class="section receptions" id="receptions" aria-labelledby="receptions-title">
   <div class="wrap">
-    <div class="section__head section__head--split reveal">
-      <div>${kicker(n, t.kicker)}<h2 id="services-title" class="h2">${esc(t.title)}</h2></div>
-      <p class="lead">${esc(t.intro)}</p>
-    </div>
-    <div class="services__grid">
+    <h2 id="receptions-title" class="h2">${esc(t.title)}</h2>
+    <ul class="cards">
       ${t.items.map((s, i) => {
-        const target = s.id === "mariages" ? href(lang, "mariages") : `${href(lang, "devis")}?type=${SERVICE_TYPE[s.id]}`;
-        return `<a class="service reveal" href="${target}" style="--d:${i % 3}">
-        <div class="service__media">${pic(SERVICE_IMG[s.id], alt(lang, SERVICE_IMG[s.id]), { sizes: "(min-width: 1000px) 31vw, (min-width: 640px) 48vw, 92vw" })}</div>
-        <div class="service__body">
-          <span class="service__n">${String(i + 1).padStart(2, "0")}</span>
-          <h3 class="service__title">${esc(s.title)}</h3>
-          <p class="service__text">${esc(s.text)}</p>
-          <span class="link">${esc(t.more)}${icon.arrow}</span>
-        </div>
-      </a>`;
+        const target = s.id === "mariages" ? href(lang, "mariages") : `${href(lang, "devis")}?type=${RECEPTION_TYPE[s.id]}`;
+        return `<li class="card reveal" style="--d:${i}">
+        <a href="${target}">
+          <div class="card__media">${pic(RECEPTION_IMG[s.id], alt(lang, RECEPTION_IMG[s.id]), { sizes: "(min-width: 1000px) 24vw, (min-width: 640px) 46vw, 92vw" })}</div>
+          <h3 class="card__title">${esc(s.title)}</h3>
+          <p class="card__text">${esc(s.text)}</p>
+          <span class="more">${esc(t.more)}</span>
+        </a>
+      </li>`;
       }).join("")}
-    </div>
+    </ul>
   </div>
 </section>`;
 }
 
-function weddingSteps(lang) {
-  const t = L[lang].weddings;
-  return `<ol class="timeline">
-      ${t.steps.map((s, i) => `<li class="reveal" style="--d:${i}"><span class="timeline__n">${roman(i + 1)}</span><div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div></li>`).join("")}
-    </ol>`;
-}
-
-function weddings(lang, n) {
-  const t = L[lang].weddings;
-  return `<section class="section section--ivory weddings" aria-labelledby="weddings-title">
-  <div class="wrap weddings__grid">
-    <div class="weddings__text">
-      <div class="reveal">${kicker(n, t.kicker)}<h2 id="weddings-title" class="h2">${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p></div>
-      ${weddingSteps(lang)}
-      <p class="reveal"><a class="btn btn--dark" href="${href(lang, "mariages")}">${esc(t.teaser)}</a></p>
-    </div>
-    <div class="weddings__media">
-      <figure class="weddings__main reveal" data-parallax>${pic("mariages/table-honneur-fleurs", alt(lang, "mariages/table-honneur-fleurs"), { sizes: "(min-width: 900px) 40vw, 92vw" })}</figure>
-      <figure class="weddings__float reveal" style="--d:2">${video("salle-mariage", t.videoLabel, "", "autoplay")}<figcaption>${esc(alt(lang, "mariages/salle-tables-rondes").split(",")[0])}</figcaption></figure>
-    </div>
-  </div>
-</section>`;
-}
-
-const TABLE = [
-  ["buffets-et-plats/buffet-desserts-bougies", "tall"],
-  ["cocktails/canapes", "wide"],
-  ["cocktails/macarons", ""],
-  ["buffets-et-plats/grand-buffet-salle", "tall"],
-  ["cocktails/mini-burgers", ""],
-  ["cocktails/bar-a-jus", "wide"],
-  ["cocktails/plateau-sushis", ""],
-  ["cocktails/verrines-jus", ""],
-];
-
-function table(lang, n) {
-  const t = L[lang].table;
-  return `<section class="section section--dark table-sec" aria-labelledby="table-title">
+/** Bandeau crème : une grande carte (le mariage) et deux cartes horizontales (salle, décoration et service). */
+function house(lang) {
+  const t = L[lang].house;
+  const sideTargets = [href(lang, "location"), href(lang, "devis")];
+  const sideImg = ["mariages/salle-centre-de-table", "decoration/assiette-serviette-noire"];
+  return `<section class="section section--cream house" aria-labelledby="house-title">
   <div class="wrap">
-    <div class="section__head section__head--center reveal">
-      ${kicker(n, t.kicker)}
-      <h2 id="table-title" class="h2">${esc(t.title)}</h2>
-      <p class="lead">${esc(t.intro)}</p>
+    <h2 id="house-title" class="h2 house__title">${esc(t.title)}</h2>
+    <div class="house__grid">
+      <article class="feature reveal">
+        ${pic("decoration/coin-maries", alt(lang, "decoration/coin-maries"), { sizes: "(min-width: 900px) 48vw, 92vw", cls: "feature__img" })}
+        <div class="feature__box">
+          <h3>${esc(t.main.title)}</h3>
+          <p>${esc(t.main.text)}</p>
+          <a class="btn btn--sm" href="${href(lang, "mariages")}">${esc(t.main.cta)}</a>
+        </div>
+      </article>
+      <div class="house__side">
+        ${t.side.map((s, i) => `<article class="tile reveal" style="--d:${i + 1}">
+          <div class="tile__media">${pic(sideImg[i], alt(lang, sideImg[i]), { sizes: "(min-width: 900px) 22vw, 46vw" })}</div>
+          <div class="tile__body">
+            <h3>${esc(s.title)}</h3>
+            <p>${esc(s.text)}</p>
+            <a class="btn btn--sm" href="${sideTargets[i]}">${esc(s.cta)}</a>
+          </div>
+        </article>`).join("")}
+      </div>
     </div>
-    <ul class="mosaic">
-      ${TABLE.map(([key, size], i) => `<li class="mosaic__item ${size ? `mosaic__item--${size}` : ""} reveal" style="--d:${i % 4}">
-        <figure>${pic(key, "", { sizes: "(min-width: 1000px) 25vw, 50vw" })}<figcaption>${esc(alt(lang, key))}</figcaption></figure>
+  </div>
+</section>`;
+}
+
+const TABLE = ["buffets-et-plats/buffet-desserts-bougies", "cocktails/canapes", "cocktails/macarons", "buffets-et-plats/grand-buffet-salle", "cocktails/mini-burgers", "cocktails/bar-a-jus", "cocktails/plateau-sushis", "cocktails/verrines-jus"];
+
+function table(lang) {
+  const t = L[lang].table;
+  return `<section class="section table-sec" aria-labelledby="table-title">
+  <div class="wrap">
+    <div class="head-row">
+      <div><h2 id="table-title" class="h2">${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p></div>
+      <a class="more" href="${href(lang, "devis")}">${esc(t.cta)}</a>
+    </div>
+    <ul class="dishes">
+      ${TABLE.map((key, i) => `<li class="dish reveal" style="--d:${i % 4}">
+        <div class="dish__media">${pic(key, alt(lang, key), { sizes: "(min-width: 1000px) 24vw, 46vw" })}</div>
+        <p class="dish__name">${esc(t.dishes[key])}</p>
       </li>`).join("")}
     </ul>
-    <p class="center reveal"><a class="btn btn--gold" href="${href(lang, "devis")}">${esc(t.cta)}</a></p>
   </div>
 </section>`;
 }
 
-function venueFacts(lang) {
-  const t = L[lang].venue;
-  return `<dl class="facts">
-      ${t.facts.map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join("")}
-    </dl>`;
-}
-
-function venue(lang, n) {
-  const t = L[lang].venue;
-  return `<section class="section section--ivory venue" aria-labelledby="venue-title">
-  <div class="wrap venue__grid">
-    <div class="venue__media reveal">
-      <!-- À REMPLIR : photos de la salle (nom, adresse, capacité) à recevoir du client. Photo provisoire ci-dessous. -->
-      ${pic("mariages/salle-centre-de-table", alt(lang, "mariages/salle-centre-de-table"), { sizes: "(min-width: 900px) 50vw, 92vw" })}
-      <p class="venue__note">${esc(t.note)}</p>
-    </div>
-    <div class="venue__text reveal" style="--d:1">
-      ${kicker(n, t.kicker)}
-      <h2 id="venue-title" class="h2">${esc(t.title)}</h2>
-      <p class="lead">${esc(t.intro)}</p>
-      ${venueFacts(lang)}
-      <div class="row">
-        <a class="btn btn--dark" href="${waLink(t.ctaMsg)}" target="_blank" rel="noopener">${esc(t.cta)}</a>
-        <a class="link link--dark" href="${href(lang, "location")}">${esc(t.more)}${icon.arrow}</a>
-      </div>
+function craft(lang) {
+  const t = L[lang].craft;
+  return `<section class="section section--cream craft" aria-labelledby="craft-title">
+  <div class="wrap craft__grid">
+    <figure class="craft__media reveal" data-videos>${video("coulisses-chef", t.videoLabel)}${pauseBtn(lang)}</figure>
+    <div class="craft__text reveal" style="--d:1">
+      <h2 id="craft-title" class="h2">${esc(t.title)}</h2>
+      ${t.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}
+      <a class="btn" href="${href(lang, "devis")}">${esc(t.more)}</a>
     </div>
   </div>
 </section>`;
@@ -469,7 +442,7 @@ function galleryItem(lang, [key, cat], i) {
 
 function lightbox(lang) {
   const t = L[lang].work;
-  return `<div class="lightbox" data-lb hidden role="dialog" aria-modal="true" aria-label="${esc(t.kicker)}">
+  return `<div class="lightbox" data-lb hidden role="dialog" aria-modal="true" aria-label="${esc(t.title)}">
   <button class="lightbox__close" type="button" data-lb-close aria-label="${esc(t.close)}">${icon.close}</button>
   <button class="lightbox__nav lightbox__nav--prev" type="button" data-lb-prev aria-label="${esc(t.prev)}">${icon.prev}</button>
   <figure class="lightbox__stage"><div data-lb-media></div><figcaption data-lb-caption></figcaption></figure>
@@ -477,74 +450,49 @@ function lightbox(lang) {
 </div>`;
 }
 
-function work(lang, n, full = false) {
+function work(lang, full = false) {
   const t = L[lang].work;
-  const items = full ? GALLERY : GALLERY.slice(0, 9);
+  const items = full ? GALLERY : GALLERY.filter(([k]) => !k.startsWith("videos/")).slice(0, 6);
   const count = (c) => GALLERY.filter(([, k]) => !c || k === c).length;
-  const filters = full ? `<ul class="filters reveal" data-filters>
-      ${[[null, t.all], ...FILTERS.filter((f) => count(f)).map((f) => [f, t.filters[f]])].map(([id, label]) => `<li><button type="button" data-filter="${id || "all"}" aria-pressed="${id ? "false" : "true"}">${esc(label)}<span>${count(id)}</span></button></li>`).join("")}
+  const filters = full ? `<ul class="filters" data-filters>
+      ${[[null, t.all], ...FILTERS.filter((f) => count(f)).map((f) => [f, t.filters[f]])].map(([id, label]) => `<li><button type="button" data-filter="${id || "all"}" aria-pressed="${id ? "false" : "true"}">${esc(label)} <span>(${count(id)})</span></button></li>`).join("")}
     </ul>` : "";
-  return `<section class="section section--dark work" id="realisations" aria-labelledby="work-title">
+  return `<section class="section work" id="realisations" aria-labelledby="work-title">
   <div class="wrap">
-    ${full ? `<h2 id="work-title" class="sr">${esc(t.title)}</h2>` : `<div class="section__head section__head--split reveal">
-      <div>${kicker(n, t.kicker)}<h2 id="work-title" class="h2">${esc(t.title)}</h2></div>
-      <p class="lead">${esc(t.intro)}</p>
+    ${full ? `<h2 id="work-title" class="sr">${esc(t.title)}</h2>` : `<div class="head-row">
+      <div><h2 id="work-title" class="h2">${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p></div>
+      <a class="more" href="${href(lang, "realisations")}">${esc(t.seeAll)}</a>
     </div>`}
     ${filters}
-    <ul class="masonry" data-masonry>
+    <ul class="${full ? "masonry" : "grid3"}" data-masonry>
       ${items.map((it, i) => galleryItem(lang, it, i)).join("")}
     </ul>
-    ${full ? `<p class="work__empty" data-empty hidden>${esc(t.empty)} <a href="${INSTAGRAM}" target="_blank" rel="noopener">${esc(t.instagram)}</a></p>` : ""}
-    <p class="center reveal">${full
-      ? `<a class="btn btn--ghost" href="${INSTAGRAM}" target="_blank" rel="noopener">${icon.ig}${esc(t.instagram)}</a>`
-      : `<a class="btn btn--ghost" href="${href(lang, "realisations")}">${esc(t.seeAll)}</a>`}</p>
+    ${full ? `<p class="work__empty" data-empty hidden>${esc(t.empty)} <a href="${INSTAGRAM}" target="_blank" rel="noopener">${esc(t.instagram)}</a></p>
+    <p class="center"><a class="btn" href="${INSTAGRAM}" target="_blank" rel="noopener">${esc(t.instagram)}</a></p>` : ""}
   </div>
 </section>`;
 }
 
-function craft(lang, n) {
-  const t = L[lang].craft;
-  return `<section class="section section--black craft" aria-labelledby="craft-title">
-  <div class="wrap craft__grid">
-    <figure class="craft__media reveal" data-videos>${video("coulisses-chef", t.videoLabel)}${pauseBtn(lang)}</figure>
-    <div class="craft__text reveal" style="--d:1">
-      ${kicker(n, t.kicker)}
-      <h2 id="craft-title" class="h2">${esc(t.title)}</h2>
-      ${t.paragraphs.map((p) => `<p>${esc(p)}</p>`).join("")}
-      <ul class="points">${t.points.map((p) => `<li><h3>${esc(p.title)}</h3><p>${esc(p.text)}</p></li>`).join("")}</ul>
-      <p class="craft__aside script">${esc(t.aside)}</p>
-    </div>
-  </div>
-</section>`;
-}
-
-function steps(lang, n) {
+function steps(lang, cls = "") {
   const t = L[lang].steps;
-  return `<section class="section section--ivory steps" aria-labelledby="steps-title">
+  return `<section class="section steps ${cls}" aria-labelledby="steps-title">
   <div class="wrap">
-    <div class="section__head section__head--center reveal">${kicker(n, t.kicker)}<h2 id="steps-title" class="h2">${esc(t.title)}</h2></div>
+    <h2 id="steps-title" class="h2">${esc(t.title)}</h2>
     <ol class="steps__list">
-      ${t.items.map((s, i) => `<li class="reveal" style="--d:${i}"><span class="steps__n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join("")}
+      ${t.items.map((s, i) => `<li class="reveal" style="--d:${i}"><span class="steps__n">${i + 1}</span><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></li>`).join("")}
     </ol>
   </div>
 </section>`;
 }
 
-function reviews(lang, n) {
+function reviews(lang) {
   const t = L[lang].reviews;
-  const slot = (i) => `<li class="review review--empty reveal" style="--d:${i}">
-        <!-- À REMPLIR avec de vrais avis clients (texte, prénom, type d'événement, date) -->
-        <span class="review__quote" aria-hidden="true">“</span>
-        <p class="review__text">${esc(t.placeholder)}</p>
-      </li>`;
-  return `<section class="section section--dark reviews" id="avis" aria-labelledby="reviews-title">
-  <div class="wrap">
-    <div class="section__head section__head--split reveal">
-      <div>${kicker(n, t.kicker)}<h2 id="reviews-title" class="h2">${esc(t.title)}</h2></div>
-      <p class="lead">${esc(t.intro)}</p>
-    </div>
-    <ul class="reviews__list">${[0, 1, 2].map(slot).join("")}</ul>
-    <p class="center reveal"><a class="btn btn--ghost" href="${INSTAGRAM}" target="_blank" rel="noopener">${icon.ig}${esc(t.cta)}</a></p>
+  return `<section class="section section--tight reviews" id="avis" aria-labelledby="reviews-title">
+  <div class="wrap reviews__row">
+    <h2 id="reviews-title" class="h3">${esc(t.title)}</h2>
+    <p>${esc(t.text)}</p>
+    <a class="btn btn--sm" href="${INSTAGRAM}" target="_blank" rel="noopener">${esc(t.cta)}</a>
+    <!-- À REMPLIR avec de vrais avis clients (texte, prénom, type d'événement, date) : remplacer ce paragraphe par une liste de citations. -->
   </div>
 </section>`;
 }
@@ -580,69 +528,69 @@ function quoteForm(lang) {
     <p class="quote__count" aria-live="polite" data-quote-count data-tpl="${esc(t.progress)}">${esc(fill(t.progress, { n: 1, total }))}</p>
     ${steps.map(([id, html], i) => `<fieldset class="quote__step" data-step="${i}"${i ? " hidden" : ""}>${html}</fieldset>`).join("\n    ")}
     <div class="quote__nav">
-      <button type="button" class="btn btn--line" data-quote-back hidden>${esc(t.back)}</button>
-      <button type="button" class="btn btn--gold" data-quote-next>${esc(t.next)}</button>
-      <button type="submit" class="btn btn--gold" data-quote-submit hidden>${icon.wa}${esc(t.submit)}</button>
-      ${FORM_ENDPOINT ? `<button type="button" class="btn btn--line" data-quote-email hidden>${esc(t.email)}</button>` : ""}
+      <button type="button" class="btn" data-quote-back hidden>${esc(t.back)}</button>
+      <button type="button" class="btn btn--solid" data-quote-next>${esc(t.next)}</button>
+      <button type="submit" class="btn btn--solid" data-quote-submit hidden>${icon.wa}${esc(t.submit)}</button>
+      ${FORM_ENDPOINT ? `<button type="button" class="btn" data-quote-email hidden>${esc(t.email)}</button>` : ""}
     </div>
     <p class="quote__status" role="status" data-quote-status></p>
   </form>`;
 }
 
-function quote(lang, n, full = false) {
+function quote(lang, full = false) {
   const t = L[lang].quote;
   const c = L[lang].contact;
-  return `<section class="section section--black quote-sec" id="${full ? "formulaire" : "devis"}" aria-labelledby="quote-title">
+  return `<section class="section section--cream quote-sec" id="${full ? "formulaire" : "devis"}" aria-labelledby="quote-title">
   <div class="wrap quote-sec__grid">
-    <div class="quote-sec__text reveal">
-      ${full ? "" : kicker(n, t.kicker)}
-      <h2 id="quote-title" class="h2">${esc(t.title)}</h2>
+    <div class="quote-sec__text">
+      ${full ? "" : `<h2 id="quote-title" class="h2">${esc(t.title)}</h2>`}
       <p class="lead">${esc(t.intro)}</p>
       <div class="contact" id="contact">
-        <p class="eyebrow">${esc(c.title)}</p>
-        <p>${esc(c.text)}</p>
+        <h3 class="contact__title">${esc(c.title)}</h3>
         <ul class="contact__list">
-          <li><a href="tel:${PHONE_INTL}">${icon.phone}<span><small>${esc(c.phone)}</small>${PHONE}</span></a></li>
-          <li><a href="${waLink(c.waMsg)}" target="_blank" rel="noopener">${icon.wa}<span><small>${esc(c.whatsapp)}</small>+33 6 26 82 55 46</span></a></li>
-          <li><a href="${INSTAGRAM}" target="_blank" rel="noopener">${icon.ig}<span><small>${esc(c.instagram)}</small>@luxetraiteurparis</span></a></li>
+          <li><span>${esc(c.phone)}</span><a href="tel:${PHONE_INTL}">${PHONE}</a></li>
+          <li><span>${esc(c.whatsapp)}</span><a href="${waLink(c.waMsg)}" target="_blank" rel="noopener">+33 6 26 82 55 46</a></li>
+          <li><span>${esc(c.instagram)}</span><a href="${INSTAGRAM}" target="_blank" rel="noopener">@luxetraiteurparis</a></li>
+          <li><span>${esc(c.zone)}</span>${esc(c.zoneText)}</li>
         </ul>
-        <p class="contact__zone"><small>${esc(c.zone)}</small>${esc(c.zoneText)}</p>
       </div>
     </div>
-    <div class="reveal" style="--d:1">${quoteForm(lang)}</div>
+    <div>${full ? `<h2 id="quote-title" class="sr">${esc(t.title)}</h2>` : ""}${quoteForm(lang)}</div>
   </div>
 </section>`;
 }
 
-function pageHead(lang, title, intro, kickerText, media) {
+function pageHead(title, intro, media) {
   return `<section class="pagehead${media ? " pagehead--media" : ""}">
   ${media ? `<div class="pagehead__media">${media}</div><div class="pagehead__shade"></div>` : ""}
   <div class="wrap pagehead__inner">
-    <p class="kicker kicker--plain">${crown}${esc(kickerText)}</p>
     <h1 class="h1">${esc(title)}</h1>
     ${intro ? `<p class="lead">${esc(intro)}</p>` : ""}
   </div>
 </section>`;
 }
 
+function venueFacts(lang) {
+  const t = L[lang].venue;
+  return `<dl class="facts">
+      ${t.facts.map((f) => `<div><dt>${esc(f.label)}</dt><dd>${esc(f.value)}</dd></div>`).join("")}
+    </dl>`;
+}
+
 /* ------------------------------------------------------------------ pages */
 
 function homePage(lang) {
-  let n = 0;
   return `${intro(lang)}
 ${header(lang, "home")}
 <main id="main">
 ${hero(lang)}
-${trust(lang)}
-${services(lang, ++n)}
-${weddings(lang, ++n)}
-${table(lang, ++n)}
-${venue(lang, ++n)}
-${work(lang, ++n)}
-${craft(lang, ++n)}
-${steps(lang, ++n)}
-${reviews(lang, ++n)}
-${quote(lang, ++n)}
+${receptions(lang)}
+${house(lang)}
+${table(lang)}
+${craft(lang)}
+${work(lang)}
+${reviews(lang)}
+${quote(lang)}
 </main>
 ${lightbox(lang)}`;
 }
@@ -652,33 +600,36 @@ function weddingsPage(lang) {
   const gallery = ["mariages/salle-tables-rondes", "decoration/coin-maries", "mariages/vin-honneur-palmiers", "mariages/soiree-salle-comble", "decoration/assiette-serviette-noire", "buffets-et-plats/buffet-desserts-bougies"];
   return `${header(lang, "mariages")}
 <main id="main">
-${pageHead(lang, t.pageTitle, t.pageIntro, t.kicker, pic("mariages/salle-tables-rondes", "", { eager: true }))}
-<section class="section section--ivory">
-  <div class="wrap weddings__grid">
-    <div class="weddings__text">
-      <div class="reveal">${kicker(1, t.kicker)}<h2 class="h2">${esc(t.title)}</h2><p class="lead">${esc(t.intro)}</p></div>
-      ${weddingSteps(lang)}
+${pageHead(t.pageTitle, t.pageIntro, pic("mariages/salle-tables-rondes", "", { eager: true }))}
+<section class="section">
+  <div class="wrap split">
+    <div>
+      <h2 class="h2">${esc(t.title)}</h2>
+      <p class="lead">${esc(t.intro)}</p>
+      <ol class="timeline">
+        ${t.steps.map((s, i) => `<li class="reveal" style="--d:${i}"><span class="timeline__n">${i + 1}</span><div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div></li>`).join("")}
+      </ol>
+      <a class="btn btn--solid" href="${href(lang, "devis")}?type=0">${esc(t.cta)}</a>
     </div>
-    <div class="weddings__media">
-      <figure class="weddings__main reveal" data-parallax>${pic("mariages/table-honneur-fleurs", alt(lang, "mariages/table-honneur-fleurs"), { sizes: "(min-width: 900px) 40vw, 92vw" })}</figure>
-      <figure class="weddings__float reveal" style="--d:2">${pic("cocktails/verrines-jus", alt(lang, "cocktails/verrines-jus"), { sizes: "(min-width: 900px) 18vw, 40vw" })}</figure>
+    <figure class="split__media reveal">${pic("mariages/table-honneur-fleurs", alt(lang, "mariages/table-honneur-fleurs"), { sizes: "(min-width: 900px) 45vw, 92vw" })}</figure>
+  </div>
+</section>
+<section class="section section--cream">
+  <div class="wrap split split--rev">
+    <figure class="split__media reveal" data-videos>${video("salle-mariage", t.videoLabel)}</figure>
+    <div>
+      <h2 class="h2">${esc(t.includedTitle)}</h2>
+      <ul class="ticks">${t.included.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
     </div>
   </div>
 </section>
-<section class="section section--black">
-  <div class="wrap included">
-    <div class="reveal">${kicker(2, t.kicker)}<h2 class="h2">${esc(t.includedTitle)}</h2></div>
-    <ul class="included__list">${t.included.map((s, i) => `<li class="reveal" style="--d:${i % 3}">${crown}<span>${esc(s)}</span></li>`).join("")}</ul>
-  </div>
-</section>
-<section class="section section--dark">
+<section class="section">
   <div class="wrap">
-    <div class="section__head reveal">${kicker(3, L[lang].work.kicker)}<h2 class="h2">${esc(t.galleryTitle)}</h2></div>
-    <ul class="masonry" data-masonry>${gallery.map((k, i) => galleryItem(lang, [k, "mariages"], i)).join("")}${galleryItem(lang, ["videos/salle-mariage", "mariages"], 6)}</ul>
+    <h2 class="h2">${esc(t.galleryTitle)}</h2>
+    <ul class="masonry" data-masonry>${gallery.map((k, i) => galleryItem(lang, [k, "mariages"], i)).join("")}</ul>
   </div>
 </section>
-${steps(lang, 4)}
-${quote(lang, 5)}
+${quote(lang)}
 </main>
 ${lightbox(lang)}`;
 }
@@ -687,32 +638,31 @@ function venuePage(lang) {
   const t = L[lang].venue;
   return `${header(lang, "location")}
 <main id="main">
-${pageHead(lang, t.pageTitle, t.pageIntro, t.kicker, pic("mariages/salle-centre-de-table", "", { eager: true }))}
-<section class="section section--ivory venue">
-  <div class="wrap venue__grid">
-    <div class="venue__media reveal">
-      <!-- À REMPLIR : galerie de la salle (photos HD), nom, adresse exacte, capacité assise et cocktail. Photos provisoires ci-dessous. -->
-      ${pic("mariages/soiree-salle-comble", alt(lang, "mariages/soiree-salle-comble"), { sizes: "(min-width: 900px) 50vw, 92vw" })}
-      <p class="venue__note">${esc(t.note)}</p>
-    </div>
-    <div class="venue__text reveal" style="--d:1">
-      ${kicker(1, t.kicker)}
+${pageHead(t.pageTitle, t.pageIntro, pic("mariages/salle-centre-de-table", "", { eager: true }))}
+<section class="section">
+  <div class="wrap split">
+    <figure class="split__media reveal">
+      <!-- À REMPLIR : galerie de la salle (photos HD), nom, adresse exacte, capacité assise et cocktail. Photo provisoire ci-dessous. -->
+      ${pic("mariages/soiree-salle-comble", alt(lang, "mariages/soiree-salle-comble"), { sizes: "(min-width: 900px) 45vw, 92vw" })}
+      <figcaption>${esc(t.note)}</figcaption>
+    </figure>
+    <div>
       <h2 class="h2">${esc(t.title)}</h2>
       ${venueFacts(lang)}
       <h3 class="h3">${esc(t.equipmentTitle)}</h3>
       <!-- À REMPLIR : équipements réels de la salle (sono, piste de danse, parking, accès PMR, horaires…) -->
       <ul class="ticks">${t.equipment.map((e) => `<li>${esc(e)}</li>`).join("")}</ul>
-      <a class="btn btn--dark" href="${waLink(t.ctaMsg)}" target="_blank" rel="noopener">${icon.wa}${esc(t.cta)}</a>
+      <a class="btn btn--solid" href="${waLink(t.ctaMsg)}" target="_blank" rel="noopener">${esc(t.cta)}</a>
     </div>
   </div>
 </section>
-<section class="section section--black">
+<section class="section section--cream">
   <div class="wrap">
-    <div class="section__head section__head--center reveal">${kicker(2, t.kicker)}<h2 class="h2">${esc(t.whyTitle)}</h2></div>
-    <ol class="steps__list steps__list--dark">${t.why.map((w, i) => `<li class="reveal" style="--d:${i}"><span class="steps__n">${String(i + 1).padStart(2, "0")}</span><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p></li>`).join("")}</ol>
+    <h2 class="h2">${esc(t.whyTitle)}</h2>
+    <ol class="steps__list">${t.why.map((w, i) => `<li class="reveal" style="--d:${i}"><span class="steps__n">${i + 1}</span><h3>${esc(w.title)}</h3><p>${esc(w.text)}</p></li>`).join("")}</ol>
   </div>
 </section>
-${quote(lang, 3)}
+${quote(lang)}
 </main>`;
 }
 
@@ -720,9 +670,9 @@ function workPage(lang) {
   const t = L[lang].work;
   return `${header(lang, "realisations")}
 <main id="main">
-${pageHead(lang, t.pageTitle, t.intro, t.kicker)}
-${work(lang, 1, true)}
-${quote(lang, 2)}
+${pageHead(t.pageTitle, t.intro)}
+${work(lang, true)}
+${quote(lang)}
 </main>
 ${lightbox(lang)}`;
 }
@@ -730,10 +680,10 @@ ${lightbox(lang)}`;
 function quotePage(lang) {
   const t = L[lang].quote;
   return `${header(lang, "devis")}
-<main id="main" class="main--quote">
-${pageHead(lang, t.title, "", t.kicker)}
-${quote(lang, 1, true)}
-${steps(lang, 2)}
+<main id="main">
+${pageHead(t.title, t.intro)}
+${quote(lang, true)}
+${steps(lang)}
 </main>`;
 }
 
@@ -741,8 +691,8 @@ function legalPage(lang) {
   const t = L[lang].legalPage;
   return `${header(lang, "legal")}
 <main id="main">
-${pageHead(lang, t.title, "", "Luxe Traiteur Paris")}
-<section class="section section--ivory">
+${pageHead(t.title, "")}
+<section class="section">
   <div class="wrap prose">
     <!-- À REMPLIR : raison sociale, forme juridique, SIRET, adresse du siège, directeur de la publication -->
     ${t.sections.map((s) => `<h2 class="h3">${esc(s.h)}</h2><p>${esc(s.p)}</p>`).join("\n    ")}
@@ -783,7 +733,7 @@ await writeFile(path.join(ROOT, "index.html"), `<!doctype html>
 <link rel="canonical" href="${SITE}/fr/">
 ${LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${SITE}/${l}/">`).join("\n")}
 <link rel="alternate" hreflang="x-default" href="${SITE}/fr/">
-<meta name="theme-color" content="#0B0B0B">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>html{background:#0B0B0B}</style>
 <script>
@@ -813,7 +763,7 @@ Téléphone et WhatsApp : ${PHONE} (${PHONE_INTL}). Instagram : ${INSTAGRAM}
 Tarifs : sur devis uniquement (menus composés sur mesure).
 
 ## Prestations
-${fr.services.items.map((s) => `- ${s.title} : ${s.text}`).join("\n")}
+${fr.receptions.items.map((s) => `- ${s.title} : ${s.text}`).join("\n")}
 
 ## Pages
 - [Accueil](${SITE}/fr/)

@@ -27,9 +27,9 @@ if (intro && root.classList.contains("intro-on")) {
     try { sessionStorage.setItem("lt-intro", "1"); } catch {}
     if (fast) root.classList.add("intro-skipped");
     intro.classList.add("is-opening");
-    setTimeout(() => { root.classList.remove("intro-on"); intro.remove(); }, fast ? 400 : 1000);
+    setTimeout(() => { root.classList.remove("intro-on"); intro.remove(); }, fast ? 400 : 600);
   };
-  setTimeout(() => open(false), 2700);
+  setTimeout(() => open(false), 1600);
   $("[data-intro-skip]").addEventListener("click", () => open(true));
   addEventListener("keydown", (e) => e.key === "Escape" && open(true), { once: true });
 } else intro?.remove();
@@ -109,6 +109,14 @@ const vio = new IntersectionObserver((entries) => entries.forEach((e) => {
   else v.pause();
 }), { threshold: 0.15 });
 if (!reduced) $$("video[data-autoplay]").forEach((v) => vio.observe(v));
+// Haut de page : la photo s'affiche d'abord ; la vidéo (paysage) ne se charge que sur grand écran, après la page,
+// jamais en mode économie de données, puis apparaît en fondu quand elle joue vraiment.
+$$(".hero__video").forEach((v) => {
+  v.addEventListener("playing", () => v.classList.add("is-playing"), { once: true });
+  if (reduced || navigator.connection?.saveData || !matchMedia("(min-width: 900px)").matches) return;
+  const start = () => setTimeout(() => vio.observe(v), 1500);
+  document.readyState === "complete" ? start() : addEventListener("load", start, { once: true });
+});
 $$("video[data-hover]").forEach((v) => {
   const box = v.closest("button") || v;
   box.addEventListener("mouseenter", () => !reduced && play(v));

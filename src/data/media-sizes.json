@@ -159,11 +159,11 @@
   ]
  },
  "decoration/coin-maries": {
-  "w": 950,
-  "h": 618,
+  "w": 929,
+  "h": 570,
   "widths": [
    480,
-   950
+   929
   ]
  },
  "service-et-coulisses/brigade-verrines": {
@@ -216,7 +216,7 @@
   "h": 662
  },
  "videos/salle-mariage": {
-  "w": 960,
-  "h": 640
+  "w": 1080,
+  "h": 720
  }
 }

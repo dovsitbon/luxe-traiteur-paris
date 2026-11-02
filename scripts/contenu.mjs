@@ -16,15 +16,16 @@ const SECTIONS = {
   meta: "Référencement (titre et description Google)",
   nav: "Menu",
   intro: "Écran d'ouverture",
-  hero: "Haut de page (vidéo)",
-  trust: "Bandeau confiance",
-  services: "Nos prestations",
+  hero: "Haut de page",
+  receptions: "Nos réceptions",
+  house: "Bandeau crème (mariage, salle, décoration et service)",
   weddings: "Mariages",
   table: "La table",
   venue: "Location de salles",
   work: "Réalisations",
-  craft: "Notre savoir-faire",
-  steps: "Comment ça marche",
+  craft: "La maison",
+  reassure: "Garanties (au-dessus du pied de page)",
+  steps: "Comment se passe une demande (page Devis)",
   reviews: "Avis clients",
   quote: "Demande de devis",
   contact: "Contact",
@@ -54,7 +55,7 @@ Pour modifier un texte : \`locales/fr.json\` et \`locales/en.json\`, puis \`npm 
 2. **Menus et formules** : exemples de menus, de pièces cocktail et de desserts (même sans prix publics), pour enrichir la page Mariages et la section « La table ».
 3. **Mention halal** : le hashtag #traiteurparishalal apparaît sur Instagram. Rien n'est écrit sur le site tant que le client n'a pas confirmé la formulation (halal, certification, sans alcool…).
 4. **Zones et frais de déplacement** : « partout en France » est annoncé ; préciser les conditions hors Île-de-France.
-5. **Vrais avis clients** (story « Avis Clients ») : texte, prénom, type d'événement, date. Trois emplacements \`À REMPLIR avec de vrais avis clients\` attendent sur l'accueil. Aucun avis n'a été inventé.
+5. **Vrais avis clients** (story « Avis Clients ») : texte, prénom, type d'événement, date. Un emplacement \`À REMPLIR avec de vrais avis clients\` attend sur l'accueil. Aucun avis n'a été inventé.
 6. **Mentions légales** : raison sociale, forme juridique, SIRET, adresse du siège, directeur de la publication.
 7. **Médias en haute qualité** : seules les 12 publications visibles sans connexion sur Instagram ont pu être récupérées (logo + 11 reels + 1 photo). Les photos du site sont extraites des reels (qualité téléphone, montages avec effets). Demander les photos et vidéos originales, notamment : réceptions d'entreprise, baptêmes, anniversaires (filtres masqués tant qu'ils sont vides), stories à la une « Nos Événements » et « Décorations ».
 8. **E-mail de contact** : pour activer l'envoi du devis par e-mail (Formspree ou équivalent), créer le formulaire puis définir \`FORM_ENDPOINT\` dans Vercel. Sans cela, seul l'envoi WhatsApp est proposé.

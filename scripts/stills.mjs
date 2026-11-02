@@ -25,7 +25,7 @@ const STILLS = [
   ["DVjetb0jCgP", 6.8, "buffets-et-plats/buffet-lustres", { l: 0, t: 0, w: 1, h: 0.82 }],
   ["Dd64t_wsoxK", 30.8, "mariages/soiree-salle-comble", { l: 0.07, t: 0.04, w: 0.88, h: 0.76 }],
   ["Dd64t_wsoxK", 33.8, "mariages/salle-centre-de-table", { l: 0.12, t: 0.05, w: 0.74, h: 0.6 }],
-  ["Dd64t_wsoxK", 11.3, "decoration/coin-maries", { l: 0.07, t: 0.1, w: 0.88, h: 0.78 }],
+  ["Dd64t_wsoxK", 11.3, "decoration/coin-maries", { l: 0.08, t: 0.15, w: 0.86, h: 0.72 }],
   ["Dd64t_wsoxK", 12.8, "decoration/assiette-serviette-noire", { l: 0.015, t: 0.015, w: 0.97, h: 0.96 }],
   ["Dd64t_wsoxK", 17.3, "cocktails/bar-a-jus", { l: 0.12, t: 0.06, w: 0.74, h: 0.8 }],
   ["Dd64t_wsoxK", 20.3, "buffets-et-plats/buffet-desserts-bougies", { l: 0, t: 0, w: 0.84, h: 1 }],

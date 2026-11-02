@@ -55,12 +55,12 @@ for (const file of (await readdir(path.join(ASSETS, "videos")).catch(() => [])).
   const src = path.join(ASSETS, "videos", file);
   const base = path.join(OUT, "videos", name);
   if (!(await fresh(src, `${base}.webm`))) {
-    // vertical : 540 px de large ; paysage : 960 px
-    const input = ["-v", "error", "-y", "-i", src, "-an", "-vf", "scale='if(gt(iw,ih),960,540)':-2,fps=30"];
+    // vertical : 540 px de large ; paysage : pleine largeur de la source (1080 px), pour le haut de page
+    const input = ["-v", "error", "-y", "-i", src, "-an", "-vf", "scale='if(gt(iw,ih),min(iw,1280),540)':-2,fps=30"];
     execFileSync(ffmpeg, [...input, "-c:v", "libx264", "-preset", "slow", "-crf", "25", "-pix_fmt", "yuv420p", "-movflags", "+faststart", `${base}.mp4`]);
     execFileSync(ffmpeg, [...input, "-c:v", "libvpx-vp9", "-b:v", "0", "-crf", "36", "-row-mt", "1", "-deadline", "good", "-cpu-used", "4", `${base}.webm`]);
     const poster = path.join(tmpdir(), `lt-${name}.jpg`);
-    execFileSync(ffmpeg, ["-v", "error", "-y", "-ss", "0.1", "-i", `${base}.mp4`, "-frames:v", "1", "-q:v", "2", poster]);
+    execFileSync(ffmpeg, ["-v", "error", "-y", "-ss", "1", "-i", `${base}.mp4`, "-frames:v", "1", "-q:v", "2", poster]);
     await sharp(poster).webp({ quality: 72 }).toFile(`${base}.webp`);
   }
   const m = await sharp(`${base}.webp`).metadata();
@@ -117,6 +117,11 @@ await (await outline(crown)).webp({ quality: 92, alphaQuality: 95 }).toFile(path
 await (await goldOnTransparent(MONO, 570)).webp({ quality: 92, alphaQuality: 95 }).toFile(path.join(OUT, "logo", "monogramme.webp"));
 const mark = await (await goldOnTransparent(MARK, 570)).png().toBuffer();
 await sharp(mark).resize({ width: 240 }).webp({ quality: 92, alphaQuality: 95 }).toFile(path.join(OUT, "logo", "embleme.webp"));
+
+// Variantes or foncé, pour les fonds clairs (en-tête blanc, intro crème).
+for (const name of ["embleme", "couronne", "couronne-trait", "monogramme", "logo-or"]) {
+  await sharp(path.join(OUT, "logo", `${name}.webp`)).modulate({ brightness: 0.6, saturation: 1.2 }).webp({ quality: 92, alphaQuality: 95 }).toFile(path.join(OUT, "logo", `${name}-fonce.webp`));
+}
 
 // Favicon et icônes : couronne + LT sur noir.
 const icon = async (size, pad) => {

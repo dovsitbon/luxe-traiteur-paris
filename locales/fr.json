@@ -47,61 +47,14 @@
     "skip": "Passer"
   },
   "hero": {
-    "eyebrow": "Traiteur haut de gamme · Paris",
-    "title": "L'excellence au service de vos réceptions",
-    "sub": "Mariages, baptêmes, cocktails et dîners d'affaires. La cuisine, la décoration et le service, pensés ensemble jusqu'au dernier détail.",
-    "ctaQuote": "Demander un devis",
-    "ctaServices": "Découvrir nos prestations",
+    "eyebrow": "Luxe Traiteur Paris",
+    "title": "Traiteur de mariages et de réceptions à Paris",
+    "cta": "Demander un devis",
     "scroll": "Défiler"
   },
-  "trust": [
-    "Traiteur premium",
-    "Organisation millimétrée",
-    "Service irréprochable",
-    "Paris, Île-de-France et partout en France"
-  ],
-  "services": {
-    "kicker": "Nos prestations",
-    "title": "Une maison, toutes vos réceptions",
-    "intro": "Du vin d'honneur pour trois cents invités au déjeuner d'affaires en petit comité, nous prenons en charge la table, le décor et le service. Vous recevez, nous nous occupons du reste.",
-    "more": "En savoir plus",
-    "items": [
-      {
-        "id": "mariages",
-        "title": "Mariages",
-        "text": "Vin d'honneur, dîner assis ou buffets, desserts et pièce montée : une réception complète, du premier verre au dernier café."
-      },
-      {
-        "id": "cocktails",
-        "title": "Cocktails et soirées",
-        "text": "Pièces salées et sucrées, verrines, bar à jus et buffets dressés pour une soirée où l'on circule, on goûte et on se retrouve."
-      },
-      {
-        "id": "affaires",
-        "title": "Repas d'affaires",
-        "text": "Séminaires, lancements, déjeuners clients : une prestation ponctuelle, discrète et à l'heure, qui reflète l'image de votre entreprise."
-      },
-      {
-        "id": "familles",
-        "title": "Baptêmes et familles",
-        "text": "Baptêmes, fiançailles, anniversaires et brunchs : des moments de famille servis avec la même exigence qu'un grand mariage."
-      },
-      {
-        "id": "decoration",
-        "title": "Décoration",
-        "text": "Centres de table, art de la table, coin des mariés : nous habillons la salle pour qu'elle ressemble à votre événement."
-      },
-      {
-        "id": "service",
-        "title": "Service",
-        "text": "Maîtres d'hôtel et serveurs en tenue, mise en place, service à l'assiette ou au buffet, débarrassage : une équipe formée et coordonnée."
-      }
-    ]
-  },
   "weddings": {
-    "kicker": "Mariages",
-    "title": "Le jour J, chaque moment a sa table",
-    "intro": "Un mariage se reçoit en plusieurs temps. Nous construisons avec vous le déroulé, le menu et la mise en scène de chacun, pour que vos invités passent d'un moment à l'autre sans jamais attendre.",
+    "title": "Le déroulé d'une réception",
+    "intro": "Chaque temps du mariage a sa table. Nous construisons le menu et l'organisation de chacun avec vous.",
     "steps": [
       {
         "title": "Le vin d'honneur",
@@ -116,11 +69,9 @@
         "text": "Pièce montée, buffet de desserts, mignardises et café, pour terminer la soirée sur une belle table sucrée."
       }
     ],
-    "cta": "Préparer mon mariage",
-    "teaser": "Découvrir la réception de mariage",
     "videoLabel": "Salle de mariage dressée, tables rondes et lustres",
-    "pageTitle": "Traiteur de mariage à Paris et en Île-de-France",
-    "pageIntro": "Depuis le vin d'honneur jusqu'au dessert, nous prenons en charge la cuisine, la décoration de table et le service de votre mariage. Une seule maison, un seul interlocuteur, et une équipe qui connaît votre déroulé par cœur.",
+    "pageTitle": "Traiteur de mariage à Paris",
+    "pageIntro": "Vin d'honneur, dîner, desserts, décoration de table et service : une seule équipe pour toute la réception, à Paris, en Île-de-France et partout en France.",
     "includedTitle": "Ce que nous prenons en charge",
     "included": [
       "Création d'un menu sur mesure, ajusté avec vous",
@@ -130,17 +81,27 @@
       "Art de la table, centres de table et coin des mariés",
       "Maîtres d'hôtel, serveurs et coordination le jour J"
     ],
-    "galleryTitle": "Quelques réceptions de mariage"
+    "galleryTitle": "Mariages récents",
+    "cta": "Demander un devis"
   },
   "table": {
-    "kicker": "La table",
-    "title": "L'élégance se cache dans les détails",
-    "intro": "Pièces cocktail, buffets et desserts : une cuisine généreuse, dressée avec soin et pensée pour être belle autant que bonne. Nos menus sont composés sur mesure, c'est pourquoi nous ne publions pas de tarifs.",
-    "cta": "Composer mon menu"
+    "title": "À table",
+    "intro": "Quelques créations servies ces derniers mois. Les menus se composent sur mesure : nous ne publions pas de tarifs.",
+    "cta": "Composer mon menu",
+    "dishes": {
+      "buffets-et-plats/buffet-desserts-bougies": "Buffet de desserts",
+      "cocktails/canapes": "Canapés et finger sandwichs",
+      "cocktails/macarons": "Macarons",
+      "buffets-et-plats/grand-buffet-salle": "Grand buffet de réception",
+      "cocktails/mini-burgers": "Mini-burgers et pièces chaudes",
+      "cocktails/bar-a-jus": "Bar à jus frais",
+      "cocktails/plateau-sushis": "Plateaux de sushis",
+      "cocktails/verrines-jus": "Verrines du vin d'honneur"
+    }
   },
   "venue": {
     "kicker": "Lieu et location",
-    "title": "Une salle pour recevoir, le traiteur en plus",
+    "title": "Une salle avec le traiteur",
     "intro": "Vous n'avez pas encore de lieu ? Nous mettons à votre disposition une salle de réception en Île-de-France, avec la cuisine, la décoration et le service dans la même prestation.",
     "facts": [
       {
@@ -186,8 +147,8 @@
   },
   "work": {
     "kicker": "Réalisations",
-    "title": "Nos dernières réceptions",
-    "intro": "Mariages en grande salle, cocktails, buffets de desserts et soirées : un aperçu de ce que nous avons servi ces derniers mois.",
+    "title": "Nos réalisations",
+    "intro": "Mariages, cocktails et buffets servis ces derniers mois à Paris et en Île-de-France.",
     "all": "Tout",
     "filters": {
       "mariages": "Mariages",
@@ -204,35 +165,20 @@
     "prev": "Précédent",
     "next": "Suivant",
     "video": "Vidéo",
-    "pageTitle": "Nos réceptions à Paris et en Île-de-France"
+    "pageTitle": "Nos réalisations"
   },
   "craft": {
-    "kicker": "Notre savoir-faire",
-    "title": "Chaque service est millimétré, chaque saveur maîtrisée",
+    "title": "La maison",
     "paragraphs": [
-      "Une belle réception ne doit rien au hasard. Avant le jour J, nous calons avec vous le déroulé minute par minute, le nombre de pièces par invité, le placement des buffets et le rôle de chaque membre de l'équipe.",
-      "En cuisine, tout est préparé et dressé par nos soins. En salle, nos maîtres d'hôtel connaissent le menu, les allergies signalées et les moments clés de la soirée. Vous n'avez à penser qu'à vos invités."
+      "Avant chaque réception, nous écrivons avec vous le déroulé : horaires, nombre de pièces par invité, emplacement des buffets, rôle de chaque serveur.",
+      "Tout est préparé et dressé par notre équipe, et nous restons sur place jusqu'à la fin de la réception."
     ],
-    "points": [
-      {
-        "title": "Organisation",
-        "text": "Un déroulé écrit, validé avec vous, partagé avec toute l'équipe."
-      },
-      {
-        "title": "Service",
-        "text": "Des maîtres d'hôtel en tenue, attentifs et discrets."
-      },
-      {
-        "title": "Saveurs",
-        "text": "Des menus composés sur mesure, généreux et soignés."
-      }
-    ],
-    "aside": "L'art de cuisiner… ou de se défendre contre le beurre fondu.",
-    "videoLabel": "En cuisine, le dressage des desserts avant le service"
+    "videoLabel": "En cuisine, le dressage des desserts avant le service",
+    "more": "Préparer ma réception"
   },
   "steps": {
     "kicker": "Comment ça marche",
-    "title": "Trois étapes, et nous nous occupons du reste",
+    "title": "Comment se passe une demande",
     "items": [
       {
         "title": "Vous nous parlez de votre événement",
@@ -249,16 +195,14 @@
     ]
   },
   "reviews": {
-    "kicker": "Avis clients",
-    "title": "Ils nous ont confié leur réception",
-    "intro": "Les avis de nos clients sont rassemblés dans nos stories à la une sur Instagram. Ils seront bientôt publiés ici.",
-    "placeholder": "Avis client à venir",
-    "cta": "Lire les avis sur Instagram"
+    "title": "Avis clients",
+    "text": "Les retours de nos clients sont réunis dans nos stories à la une sur Instagram.",
+    "cta": "Lire les avis"
   },
   "quote": {
     "kicker": "Demande de devis",
-    "title": "Parlez-nous de votre réception",
-    "intro": "Deux minutes suffisent. Nous revenons vers vous rapidement avec une première proposition.",
+    "title": "Demander un devis",
+    "intro": "Date, lieu, nombre d'invités : quelques questions, puis WhatsApp s'ouvre avec votre demande rédigée.",
     "progress": "Étape {n} sur {total}",
     "back": "Retour",
     "next": "Continuer",
@@ -334,7 +278,7 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Une date en tête ?",
+    "title": "Nous joindre",
     "text": "Appelez-nous ou écrivez-nous sur WhatsApp. Nous vous répondons rapidement.",
     "phone": "Téléphone",
     "whatsapp": "WhatsApp",
@@ -407,5 +351,69 @@
   "video": {
     "pause": "Mettre les vidéos en pause",
     "play": "Relancer les vidéos"
-  }
+  },
+  "receptions": {
+    "title": "Nos réceptions",
+    "more": "Découvrir",
+    "items": [
+      {
+        "id": "mariages",
+        "title": "Mariages",
+        "text": "Vin d'honneur, dîner et desserts, avec le service et la décoration de table."
+      },
+      {
+        "id": "cocktails",
+        "title": "Cocktails et soirées",
+        "text": "Pièces salées et sucrées, buffets dressés et bar à jus, pour quelques dizaines ou plusieurs centaines d'invités."
+      },
+      {
+        "id": "affaires",
+        "title": "Repas d'affaires",
+        "text": "Séminaires, lancements, déjeuners clients : un service ponctuel et discret."
+      },
+      {
+        "id": "familles",
+        "title": "Baptêmes et familles",
+        "text": "Baptêmes, fiançailles, anniversaires et brunchs, à la maison ou en salle."
+      }
+    ]
+  },
+  "house": {
+    "title": "La cuisine, la salle et le service, réunis par une seule maison.",
+    "main": {
+      "title": "Le mariage",
+      "text": "Nous préparons le vin d'honneur, le dîner et le buffet de desserts, puis nous assurons le service jusqu'au dernier café.",
+      "cta": "Découvrir"
+    },
+    "side": [
+      {
+        "title": "Location de salle",
+        "text": "Une salle de réception en Île-de-France, avec le traiteur et le service dans le même devis.",
+        "cta": "Voir la salle"
+      },
+      {
+        "title": "Décoration et service",
+        "text": "Art de la table, centres de table, coin des mariés, maîtres d'hôtel et serveurs en tenue.",
+        "cta": "Demander un devis"
+      }
+    ]
+  },
+  "reassure": [
+    {
+      "title": "Paris et Île-de-France",
+      "text": "Et partout en France sur demande"
+    },
+    {
+      "title": "Menus sur mesure",
+      "text": "Composés avec vous, sans formule imposée"
+    },
+    {
+      "title": "Service en salle",
+      "text": "Maîtres d'hôtel et serveurs en tenue"
+    },
+    {
+      "title": "Réponse sur WhatsApp",
+      "text": "06 26 82 55 46"
+    }
+  ]
 }

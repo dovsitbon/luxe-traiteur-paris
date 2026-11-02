@@ -20,7 +20,7 @@ const CLIPS = [
   ["hero-table", "DVjetb0jCgP", 0, 3.4, "crop=iw:ih*0.69:0:ih*0.11"],
   ["hero-brigade", "De41dd3MmBp", 0, 5.7, "crop=iw:ih:0:0"],
   ["salle-mariage", "Dd2bvW0MyXe", 0, 4, "crop=iw:ih:0:0"],
-  ["coulisses-chef", "De-6yoDs9Er", [[42, 2.4], [46, 2]], 0, "crop=iw:ih:0:0"],
+  ["coulisses-chef", "De-6yoDs9Er", [[42.4, 2], [46, 2]], 0, "crop=iw:ih:0:0"],
 ];
 const GRADE = "scale=trunc(iw/2)*2:trunc(ih/2)*2,colorchannelmixer=rr=1.03:rg=0.02:bb=0.92:bg=0.02,eq=saturation=0.9";
 

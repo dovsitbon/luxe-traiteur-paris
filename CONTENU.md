@@ -9,7 +9,7 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 2. **Menus et formules** : exemples de menus, de pièces cocktail et de desserts (même sans prix publics), pour enrichir la page Mariages et la section « La table ».
 3. **Mention halal** : le hashtag #traiteurparishalal apparaît sur Instagram. Rien n'est écrit sur le site tant que le client n'a pas confirmé la formulation (halal, certification, sans alcool…).
 4. **Zones et frais de déplacement** : « partout en France » est annoncé ; préciser les conditions hors Île-de-France.
-5. **Vrais avis clients** (story « Avis Clients ») : texte, prénom, type d'événement, date. Trois emplacements `À REMPLIR avec de vrais avis clients` attendent sur l'accueil. Aucun avis n'a été inventé.
+5. **Vrais avis clients** (story « Avis Clients ») : texte, prénom, type d'événement, date. Un emplacement `À REMPLIR avec de vrais avis clients` attend sur l'accueil. Aucun avis n'a été inventé.
 6. **Mentions légales** : raison sociale, forme juridique, SIRET, adresse du siège, directeur de la publication.
 7. **Médias en haute qualité** : seules les 12 publications visibles sans connexion sur Instagram ont pu être récupérées (logo + 11 reels + 1 photo). Les photos du site sont extraites des reels (qualité téléphone, montages avec effets). Demander les photos et vidéos originales, notamment : réceptions d'entreprise, baptêmes, anniversaires (filtres masqués tant qu'ils sont vides), stories à la une « Nos Événements » et « Décorations ».
 8. **E-mail de contact** : pour activer l'envoi du devis par e-mail (Formspree ou équivalent), créer le formulaire puis définir `FORM_ENDPOINT` dans Vercel. Sans cela, seul l'envoi WhatsApp est proposé.
@@ -61,71 +61,64 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 | intro.tagline | L'excellence au service de vos réceptions | Excellence in the service of your receptions |
 | intro.skip | Passer | Skip |
 
-### Haut de page (vidéo)
+### Haut de page
 
 | Emplacement | Français | English |
 |---|---|---|
-| hero.eyebrow | Traiteur haut de gamme · Paris | Luxury catering · Paris |
-| hero.title | L'excellence au service de vos réceptions | Excellence in the service of your receptions |
-| hero.sub | Mariages, baptêmes, cocktails et dîners d'affaires. La cuisine, la décoration et le service, pensés ensemble jusqu'au dernier détail. | Weddings, christenings, cocktail parties and business dinners. Food, decor and service, planned together down to the last detail. |
-| hero.ctaQuote | Demander un devis | Request a quote |
-| hero.ctaServices | Découvrir nos prestations | Explore our services |
+| hero.eyebrow | Luxe Traiteur Paris | Luxe Traiteur Paris |
+| hero.title | Traiteur de mariages et de réceptions à Paris | Wedding and event caterer in Paris |
+| hero.cta | Demander un devis | Request a quote |
 | hero.scroll | Défiler | Scroll |
 
-### Bandeau confiance
+### Nos réceptions
 
 | Emplacement | Français | English |
 |---|---|---|
-| trust.0 | Traiteur premium | Premium caterer |
-| trust.1 | Organisation millimétrée | Meticulous planning |
-| trust.2 | Service irréprochable | Flawless service |
-| trust.3 | Paris, Île-de-France et partout en France | Paris, Île-de-France and all of France |
+| receptions.title | Nos réceptions | Our receptions |
+| receptions.more | Découvrir | Discover |
+| receptions.items.0.id | mariages | mariages |
+| receptions.items.0.title | Mariages | Weddings |
+| receptions.items.0.text | Vin d'honneur, dîner et desserts, avec le service et la décoration de table. | Drinks reception, dinner and desserts, with service and table decor. |
+| receptions.items.1.id | cocktails | cocktails |
+| receptions.items.1.title | Cocktails et soirées | Cocktail parties |
+| receptions.items.1.text | Pièces salées et sucrées, buffets dressés et bar à jus, pour quelques dizaines ou plusieurs centaines d'invités. | Savoury and sweet canapés, dressed buffets and a fresh juice bar, for a few dozen or several hundred guests. |
+| receptions.items.2.id | affaires | affaires |
+| receptions.items.2.title | Repas d'affaires | Business events |
+| receptions.items.2.text | Séminaires, lancements, déjeuners clients : un service ponctuel et discret. | Seminars, launches, client lunches: punctual, discreet service. |
+| receptions.items.3.id | familles | familles |
+| receptions.items.3.title | Baptêmes et familles | Christenings and family |
+| receptions.items.3.text | Baptêmes, fiançailles, anniversaires et brunchs, à la maison ou en salle. | Christenings, engagements, birthdays and brunches, at home or in a venue. |
 
-### Nos prestations
+### Bandeau crème (mariage, salle, décoration et service)
 
 | Emplacement | Français | English |
 |---|---|---|
-| services.kicker | Nos prestations | Our services |
-| services.title | Une maison, toutes vos réceptions | One house for every kind of reception |
-| services.intro | Du vin d'honneur pour trois cents invités au déjeuner d'affaires en petit comité, nous prenons en charge la table, le décor et le service. Vous recevez, nous nous occupons du reste. | From a drinks reception for three hundred guests to an intimate business lunch, we take care of the table, the setting and the service. You host; we handle the rest. |
-| services.more | En savoir plus | Find out more |
-| services.items.0.id | mariages | mariages |
-| services.items.0.title | Mariages | Weddings |
-| services.items.0.text | Vin d'honneur, dîner assis ou buffets, desserts et pièce montée : une réception complète, du premier verre au dernier café. | Drinks reception, seated dinner or buffets, desserts and wedding cake: a complete reception, from the first glass to the last coffee. |
-| services.items.1.id | cocktails | cocktails |
-| services.items.1.title | Cocktails et soirées | Cocktail parties |
-| services.items.1.text | Pièces salées et sucrées, verrines, bar à jus et buffets dressés pour une soirée où l'on circule, on goûte et on se retrouve. | Savoury and sweet canapés, verrines, a fresh juice bar and dressed buffets, for an evening where guests mingle, taste and talk. |
-| services.items.2.id | affaires | affaires |
-| services.items.2.title | Repas d'affaires | Business events |
-| services.items.2.text | Séminaires, lancements, déjeuners clients : une prestation ponctuelle, discrète et à l'heure, qui reflète l'image de votre entreprise. | Seminars, launches and client lunches: punctual, discreet catering that reflects the standing of your company. |
-| services.items.3.id | familles | familles |
-| services.items.3.title | Baptêmes et familles | Christenings and family |
-| services.items.3.text | Baptêmes, fiançailles, anniversaires et brunchs : des moments de famille servis avec la même exigence qu'un grand mariage. | Christenings, engagements, birthdays and brunches: family occasions served with the same care as a grand wedding. |
-| services.items.4.id | decoration | decoration |
-| services.items.4.title | Décoration | Decor |
-| services.items.4.text | Centres de table, art de la table, coin des mariés : nous habillons la salle pour qu'elle ressemble à votre événement. | Centrepieces, tableware and the couple's lounge: we dress the room so it feels like your event. |
-| services.items.5.id | service | service |
-| services.items.5.title | Service | Service |
-| services.items.5.text | Maîtres d'hôtel et serveurs en tenue, mise en place, service à l'assiette ou au buffet, débarrassage : une équipe formée et coordonnée. | Uniformed head waiters and staff, set-up, plated or buffet service and clearing: a trained, well-coordinated team. |
+| house.title | La cuisine, la salle et le service, réunis par une seule maison. | Food, venue and service, brought together by one house. |
+| house.main.title | Le mariage | Weddings |
+| house.main.text | Nous préparons le vin d'honneur, le dîner et le buffet de desserts, puis nous assurons le service jusqu'au dernier café. | We prepare the drinks reception, the dinner and the dessert buffet, then serve right through to the last coffee. |
+| house.main.cta | Découvrir | Discover |
+| house.side.0.title | Location de salle | Venue hire |
+| house.side.0.text | Une salle de réception en Île-de-France, avec le traiteur et le service dans le même devis. | A reception venue in the Paris region, with catering and service in the same quote. |
+| house.side.0.cta | Voir la salle | See the venue |
+| house.side.1.title | Décoration et service | Decor and service |
+| house.side.1.text | Art de la table, centres de table, coin des mariés, maîtres d'hôtel et serveurs en tenue. | Tableware, centrepieces, the couple's lounge, uniformed head waiters and staff. |
+| house.side.1.cta | Demander un devis | Request a quote |
 
 ### Mariages
 
 | Emplacement | Français | English |
 |---|---|---|
-| weddings.kicker | Mariages | Weddings |
-| weddings.title | Le jour J, chaque moment a sa table | On the day, every moment has its table |
-| weddings.intro | Un mariage se reçoit en plusieurs temps. Nous construisons avec vous le déroulé, le menu et la mise en scène de chacun, pour que vos invités passent d'un moment à l'autre sans jamais attendre. | A wedding reception unfolds in stages. We plan the timeline, the menu and the setting of each one with you, so your guests move from one to the next without ever waiting. |
+| weddings.title | Le déroulé d'une réception | How a reception unfolds |
+| weddings.intro | Chaque temps du mariage a sa table. Nous construisons le menu et l'organisation de chacun avec vous. | Each part of the wedding has its own table. We plan the menu and the running of each one with you. |
 | weddings.steps.0.title | Le vin d'honneur | The drinks reception |
 | weddings.steps.0.text | Pièces cocktail, ateliers et buffets dressés, bar à jus et rafraîchissements, servis pendant que les photos se font. | Canapés, food stations and dressed buffets, a fresh juice bar and soft drinks, served while the photos are taken. |
 | weddings.steps.1.title | Le dîner | The dinner |
 | weddings.steps.1.text | Service à l'assiette ou grands buffets, selon votre salle et votre nombre d'invités. Entrée, plat, fromages : le menu se compose avec vous. | Plated service or grand buffets, depending on your venue and guest count. Starter, main, cheese: the menu is built with you. |
 | weddings.steps.2.title | Le dessert | Dessert |
 | weddings.steps.2.text | Pièce montée, buffet de desserts, mignardises et café, pour terminer la soirée sur une belle table sucrée. | Wedding cake, a dessert buffet, petits fours and coffee, to close the evening on a beautiful sweet table. |
-| weddings.cta | Préparer mon mariage | Plan my wedding |
-| weddings.teaser | Découvrir la réception de mariage | See the wedding reception |
 | weddings.videoLabel | Salle de mariage dressée, tables rondes et lustres | Wedding venue set with round tables and chandeliers |
-| weddings.pageTitle | Traiteur de mariage à Paris et en Île-de-France | Wedding caterer in Paris and the Île-de-France region |
-| weddings.pageIntro | Depuis le vin d'honneur jusqu'au dessert, nous prenons en charge la cuisine, la décoration de table et le service de votre mariage. Une seule maison, un seul interlocuteur, et une équipe qui connaît votre déroulé par cœur. | From the drinks reception to dessert, we handle the food, table decor and service for your wedding. One house, one point of contact, and a team that knows your timeline by heart. |
+| weddings.pageTitle | Traiteur de mariage à Paris | Wedding caterer in Paris |
+| weddings.pageIntro | Vin d'honneur, dîner, desserts, décoration de table et service : une seule équipe pour toute la réception, à Paris, en Île-de-France et partout en France. | Drinks reception, dinner, desserts, table decor and service: one team for the whole reception, in Paris, the surrounding region and across France. |
 | weddings.includedTitle | Ce que nous prenons en charge | What we take care of |
 | weddings.included.0 | Création d'un menu sur mesure, ajusté avec vous | A tailored menu, refined with you |
 | weddings.included.1 | Buffets et pièces cocktail du vin d'honneur | Canapés and buffets for the drinks reception |
@@ -133,23 +126,31 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 | weddings.included.3 | Desserts, pièce montée et mignardises | Desserts, wedding cake and petits fours |
 | weddings.included.4 | Art de la table, centres de table et coin des mariés | Tableware, centrepieces and the couple's lounge |
 | weddings.included.5 | Maîtres d'hôtel, serveurs et coordination le jour J | Head waiters, staff and on-the-day coordination |
-| weddings.galleryTitle | Quelques réceptions de mariage | A few of our wedding receptions |
+| weddings.galleryTitle | Mariages récents | Recent weddings |
+| weddings.cta | Demander un devis | Request a quote |
 
 ### La table
 
 | Emplacement | Français | English |
 |---|---|---|
-| table.kicker | La table | The table |
-| table.title | L'élégance se cache dans les détails | Elegance lies in the details |
-| table.intro | Pièces cocktail, buffets et desserts : une cuisine généreuse, dressée avec soin et pensée pour être belle autant que bonne. Nos menus sont composés sur mesure, c'est pourquoi nous ne publions pas de tarifs. | Canapés, buffets and desserts: generous food, carefully presented, made to look as good as it tastes. Every menu is tailored, which is why we don't publish prices. |
+| table.title | À table | At the table |
+| table.intro | Quelques créations servies ces derniers mois. Les menus se composent sur mesure : nous ne publions pas de tarifs. | A few dishes served in recent months. Every menu is tailored, so we don't publish prices. |
 | table.cta | Composer mon menu | Build my menu |
+| table.dishes.buffets-et-plats/buffet-desserts-bougies | Buffet de desserts | Dessert buffet |
+| table.dishes.cocktails/canapes | Canapés et finger sandwichs | Canapés and finger sandwiches |
+| table.dishes.cocktails/macarons | Macarons | Macarons |
+| table.dishes.buffets-et-plats/grand-buffet-salle | Grand buffet de réception | Grand reception buffet |
+| table.dishes.cocktails/mini-burgers | Mini-burgers et pièces chaudes | Mini burgers and hot canapés |
+| table.dishes.cocktails/bar-a-jus | Bar à jus frais | Fresh juice bar |
+| table.dishes.cocktails/plateau-sushis | Plateaux de sushis | Sushi platters |
+| table.dishes.cocktails/verrines-jus | Verrines du vin d'honneur | Drinks reception verrines |
 
 ### Location de salles
 
 | Emplacement | Français | English |
 |---|---|---|
 | venue.kicker | Lieu et location | Venue hire |
-| venue.title | Une salle pour recevoir, le traiteur en plus | A room to host in, with the caterer included |
+| venue.title | Une salle avec le traiteur | A venue with the caterer included |
 | venue.intro | Vous n'avez pas encore de lieu ? Nous mettons à votre disposition une salle de réception en Île-de-France, avec la cuisine, la décoration et le service dans la même prestation. | No venue yet? We offer a reception venue in the Paris region, with food, decor and service in a single package. |
 | venue.facts.0.label | Capacité | Capacity |
 | venue.facts.0.value | À préciser | To be confirmed |
@@ -180,8 +181,8 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 | Emplacement | Français | English |
 |---|---|---|
 | work.kicker | Réalisations | Our work |
-| work.title | Nos dernières réceptions | Our latest receptions |
-| work.intro | Mariages en grande salle, cocktails, buffets de desserts et soirées : un aperçu de ce que nous avons servi ces derniers mois. | Weddings in grand ballrooms, cocktail parties, dessert buffets and evening events: a glimpse of what we've served in recent months. |
+| work.title | Nos réalisations | Our work |
+| work.intro | Mariages, cocktails et buffets servis ces derniers mois à Paris et en Île-de-France. | Weddings, cocktail parties and buffets served in recent months in Paris and the surrounding region. |
 | work.all | Tout | All |
 | work.filters.mariages | Mariages | Weddings |
 | work.filters.cocktails | Cocktails | Cocktails |
@@ -196,31 +197,37 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 | work.prev | Précédent | Previous |
 | work.next | Suivant | Next |
 | work.video | Vidéo | Video |
-| work.pageTitle | Nos réceptions à Paris et en Île-de-France | Our receptions in Paris and the Île-de-France region |
+| work.pageTitle | Nos réalisations | Our work |
 
-### Notre savoir-faire
+### La maison
 
 | Emplacement | Français | English |
 |---|---|---|
-| craft.kicker | Notre savoir-faire | Our craft |
-| craft.title | Chaque service est millimétré, chaque saveur maîtrisée | Every service precisely timed, every flavour mastered |
-| craft.paragraphs.0 | Une belle réception ne doit rien au hasard. Avant le jour J, nous calons avec vous le déroulé minute par minute, le nombre de pièces par invité, le placement des buffets et le rôle de chaque membre de l'équipe. | A beautiful reception leaves nothing to chance. Before the day, we set the timeline with you minute by minute, the number of canapés per guest, where the buffets go and what each member of the team will do. |
-| craft.paragraphs.1 | En cuisine, tout est préparé et dressé par nos soins. En salle, nos maîtres d'hôtel connaissent le menu, les allergies signalées et les moments clés de la soirée. Vous n'avez à penser qu'à vos invités. | Everything is prepared and plated by our own kitchen. In the room, our head waiters know the menu, any allergies you've flagged and the key moments of the evening. All you have to think about is your guests. |
-| craft.points.0.title | Organisation | Planning |
-| craft.points.0.text | Un déroulé écrit, validé avec vous, partagé avec toute l'équipe. | A written timeline, approved by you and shared with the whole team. |
-| craft.points.1.title | Service | Service |
-| craft.points.1.text | Des maîtres d'hôtel en tenue, attentifs et discrets. | Uniformed head waiters, attentive and discreet. |
-| craft.points.2.title | Saveurs | Flavour |
-| craft.points.2.text | Des menus composés sur mesure, généreux et soignés. | Tailored menus, generous and carefully made. |
-| craft.aside | L'art de cuisiner… ou de se défendre contre le beurre fondu. | The art of cooking… or of defending yourself against melted butter. |
+| craft.title | La maison | The house |
+| craft.paragraphs.0 | Avant chaque réception, nous écrivons avec vous le déroulé : horaires, nombre de pièces par invité, emplacement des buffets, rôle de chaque serveur. | Before every reception we write the timeline with you: timings, canapés per guest, where the buffets go, what each waiter does. |
+| craft.paragraphs.1 | Tout est préparé et dressé par notre équipe, et nous restons sur place jusqu'à la fin de la réception. | Everything is prepared and plated by our team, and we stay on site until the reception is over. |
 | craft.videoLabel | En cuisine, le dressage des desserts avant le service | In the kitchen, plating desserts before service |
+| craft.more | Préparer ma réception | Plan my reception |
 
-### Comment ça marche
+### Garanties (au-dessus du pied de page)
+
+| Emplacement | Français | English |
+|---|---|---|
+| reassure.0.title | Paris et Île-de-France | Paris and Île-de-France |
+| reassure.0.text | Et partout en France sur demande | And anywhere in France on request |
+| reassure.1.title | Menus sur mesure | Tailored menus |
+| reassure.1.text | Composés avec vous, sans formule imposée | Built with you, no set packages |
+| reassure.2.title | Service en salle | Table service |
+| reassure.2.text | Maîtres d'hôtel et serveurs en tenue | Uniformed head waiters and staff |
+| reassure.3.title | Réponse sur WhatsApp | Reply on WhatsApp |
+| reassure.3.text | 06 26 82 55 46 | +33 6 26 82 55 46 |
+
+### Comment se passe une demande (page Devis)
 
 | Emplacement | Français | English |
 |---|---|---|
 | steps.kicker | Comment ça marche | How it works |
-| steps.title | Trois étapes, et nous nous occupons du reste | Three steps, and we take care of the rest |
+| steps.title | Comment se passe une demande | How a request works |
 | steps.items.0.title | Vous nous parlez de votre événement | Tell us about your event |
 | steps.items.0.text | Date, lieu, nombre d'invités, envies : quelques minutes au téléphone, sur WhatsApp ou via le formulaire. | Date, venue, guest count, what you have in mind: a few minutes by phone, on WhatsApp or through the form. |
 | steps.items.1.title | Nous vous proposons un menu et un devis | We send you a menu and a quote |
@@ -232,19 +239,17 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 
 | Emplacement | Français | English |
 |---|---|---|
-| reviews.kicker | Avis clients | Client reviews |
-| reviews.title | Ils nous ont confié leur réception | They trusted us with their reception |
-| reviews.intro | Les avis de nos clients sont rassemblés dans nos stories à la une sur Instagram. Ils seront bientôt publiés ici. | Our clients' reviews are gathered in our Instagram story highlights. They will be published here soon. |
-| reviews.placeholder | Avis client à venir | Client review coming soon |
-| reviews.cta | Lire les avis sur Instagram | Read the reviews on Instagram |
+| reviews.title | Avis clients | Client reviews |
+| reviews.text | Les retours de nos clients sont réunis dans nos stories à la une sur Instagram. | Our clients' feedback is gathered in our Instagram story highlights. |
+| reviews.cta | Lire les avis | Read the reviews |
 
 ### Demande de devis
 
 | Emplacement | Français | English |
 |---|---|---|
 | quote.kicker | Demande de devis | Request a quote |
-| quote.title | Parlez-nous de votre réception | Tell us about your reception |
-| quote.intro | Deux minutes suffisent. Nous revenons vers vous rapidement avec une première proposition. | It takes two minutes. We'll come back to you quickly with a first proposal. |
+| quote.title | Demander un devis | Request a quote |
+| quote.intro | Date, lieu, nombre d'invités : quelques questions, puis WhatsApp s'ouvre avec votre demande rédigée. | Date, venue, guest count: a few questions, then WhatsApp opens with your request written out. |
 | quote.progress | Étape {n} sur {total} | Step {n} of {total} |
 | quote.back | Retour | Back |
 | quote.next | Continuer | Continue |
@@ -309,7 +314,7 @@ Pour modifier un texte : `locales/fr.json` et `locales/en.json`, puis `npm run b
 | Emplacement | Français | English |
 |---|---|---|
 | contact.kicker | Contact | Contact |
-| contact.title | Une date en tête ? | Have a date in mind? |
+| contact.title | Nous joindre | Get in touch |
 | contact.text | Appelez-nous ou écrivez-nous sur WhatsApp. Nous vous répondons rapidement. | Call us or message us on WhatsApp. We'll get back to you quickly. |
 | contact.phone | Téléphone | Phone |
 | contact.whatsapp | WhatsApp | WhatsApp |

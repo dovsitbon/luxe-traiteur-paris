@@ -47,61 +47,14 @@
     "skip": "Skip"
   },
   "hero": {
-    "eyebrow": "Luxury catering · Paris",
-    "title": "Excellence in the service of your receptions",
-    "sub": "Weddings, christenings, cocktail parties and business dinners. Food, decor and service, planned together down to the last detail.",
-    "ctaQuote": "Request a quote",
-    "ctaServices": "Explore our services",
+    "eyebrow": "Luxe Traiteur Paris",
+    "title": "Wedding and event caterer in Paris",
+    "cta": "Request a quote",
     "scroll": "Scroll"
   },
-  "trust": [
-    "Premium caterer",
-    "Meticulous planning",
-    "Flawless service",
-    "Paris, Île-de-France and all of France"
-  ],
-  "services": {
-    "kicker": "Our services",
-    "title": "One house for every kind of reception",
-    "intro": "From a drinks reception for three hundred guests to an intimate business lunch, we take care of the table, the setting and the service. You host; we handle the rest.",
-    "more": "Find out more",
-    "items": [
-      {
-        "id": "mariages",
-        "title": "Weddings",
-        "text": "Drinks reception, seated dinner or buffets, desserts and wedding cake: a complete reception, from the first glass to the last coffee."
-      },
-      {
-        "id": "cocktails",
-        "title": "Cocktail parties",
-        "text": "Savoury and sweet canapés, verrines, a fresh juice bar and dressed buffets, for an evening where guests mingle, taste and talk."
-      },
-      {
-        "id": "affaires",
-        "title": "Business events",
-        "text": "Seminars, launches and client lunches: punctual, discreet catering that reflects the standing of your company."
-      },
-      {
-        "id": "familles",
-        "title": "Christenings and family",
-        "text": "Christenings, engagements, birthdays and brunches: family occasions served with the same care as a grand wedding."
-      },
-      {
-        "id": "decoration",
-        "title": "Decor",
-        "text": "Centrepieces, tableware and the couple's lounge: we dress the room so it feels like your event."
-      },
-      {
-        "id": "service",
-        "title": "Service",
-        "text": "Uniformed head waiters and staff, set-up, plated or buffet service and clearing: a trained, well-coordinated team."
-      }
-    ]
-  },
   "weddings": {
-    "kicker": "Weddings",
-    "title": "On the day, every moment has its table",
-    "intro": "A wedding reception unfolds in stages. We plan the timeline, the menu and the setting of each one with you, so your guests move from one to the next without ever waiting.",
+    "title": "How a reception unfolds",
+    "intro": "Each part of the wedding has its own table. We plan the menu and the running of each one with you.",
     "steps": [
       {
         "title": "The drinks reception",
@@ -116,11 +69,9 @@
         "text": "Wedding cake, a dessert buffet, petits fours and coffee, to close the evening on a beautiful sweet table."
       }
     ],
-    "cta": "Plan my wedding",
-    "teaser": "See the wedding reception",
     "videoLabel": "Wedding venue set with round tables and chandeliers",
-    "pageTitle": "Wedding caterer in Paris and the Île-de-France region",
-    "pageIntro": "From the drinks reception to dessert, we handle the food, table decor and service for your wedding. One house, one point of contact, and a team that knows your timeline by heart.",
+    "pageTitle": "Wedding caterer in Paris",
+    "pageIntro": "Drinks reception, dinner, desserts, table decor and service: one team for the whole reception, in Paris, the surrounding region and across France.",
     "includedTitle": "What we take care of",
     "included": [
       "A tailored menu, refined with you",
@@ -130,17 +81,27 @@
       "Tableware, centrepieces and the couple's lounge",
       "Head waiters, staff and on-the-day coordination"
     ],
-    "galleryTitle": "A few of our wedding receptions"
+    "galleryTitle": "Recent weddings",
+    "cta": "Request a quote"
   },
   "table": {
-    "kicker": "The table",
-    "title": "Elegance lies in the details",
-    "intro": "Canapés, buffets and desserts: generous food, carefully presented, made to look as good as it tastes. Every menu is tailored, which is why we don't publish prices.",
-    "cta": "Build my menu"
+    "title": "At the table",
+    "intro": "A few dishes served in recent months. Every menu is tailored, so we don't publish prices.",
+    "cta": "Build my menu",
+    "dishes": {
+      "buffets-et-plats/buffet-desserts-bougies": "Dessert buffet",
+      "cocktails/canapes": "Canapés and finger sandwiches",
+      "cocktails/macarons": "Macarons",
+      "buffets-et-plats/grand-buffet-salle": "Grand reception buffet",
+      "cocktails/mini-burgers": "Mini burgers and hot canapés",
+      "cocktails/bar-a-jus": "Fresh juice bar",
+      "cocktails/plateau-sushis": "Sushi platters",
+      "cocktails/verrines-jus": "Drinks reception verrines"
+    }
   },
   "venue": {
     "kicker": "Venue hire",
-    "title": "A room to host in, with the caterer included",
+    "title": "A venue with the caterer included",
     "intro": "No venue yet? We offer a reception venue in the Paris region, with food, decor and service in a single package.",
     "facts": [
       {
@@ -186,8 +147,8 @@
   },
   "work": {
     "kicker": "Our work",
-    "title": "Our latest receptions",
-    "intro": "Weddings in grand ballrooms, cocktail parties, dessert buffets and evening events: a glimpse of what we've served in recent months.",
+    "title": "Our work",
+    "intro": "Weddings, cocktail parties and buffets served in recent months in Paris and the surrounding region.",
     "all": "All",
     "filters": {
       "mariages": "Weddings",
@@ -204,35 +165,20 @@
     "prev": "Previous",
     "next": "Next",
     "video": "Video",
-    "pageTitle": "Our receptions in Paris and the Île-de-France region"
+    "pageTitle": "Our work"
   },
   "craft": {
-    "kicker": "Our craft",
-    "title": "Every service precisely timed, every flavour mastered",
+    "title": "The house",
     "paragraphs": [
-      "A beautiful reception leaves nothing to chance. Before the day, we set the timeline with you minute by minute, the number of canapés per guest, where the buffets go and what each member of the team will do.",
-      "Everything is prepared and plated by our own kitchen. In the room, our head waiters know the menu, any allergies you've flagged and the key moments of the evening. All you have to think about is your guests."
+      "Before every reception we write the timeline with you: timings, canapés per guest, where the buffets go, what each waiter does.",
+      "Everything is prepared and plated by our team, and we stay on site until the reception is over."
     ],
-    "points": [
-      {
-        "title": "Planning",
-        "text": "A written timeline, approved by you and shared with the whole team."
-      },
-      {
-        "title": "Service",
-        "text": "Uniformed head waiters, attentive and discreet."
-      },
-      {
-        "title": "Flavour",
-        "text": "Tailored menus, generous and carefully made."
-      }
-    ],
-    "aside": "The art of cooking… or of defending yourself against melted butter.",
-    "videoLabel": "In the kitchen, plating desserts before service"
+    "videoLabel": "In the kitchen, plating desserts before service",
+    "more": "Plan my reception"
   },
   "steps": {
     "kicker": "How it works",
-    "title": "Three steps, and we take care of the rest",
+    "title": "How a request works",
     "items": [
       {
         "title": "Tell us about your event",
@@ -249,16 +195,14 @@
     ]
   },
   "reviews": {
-    "kicker": "Client reviews",
-    "title": "They trusted us with their reception",
-    "intro": "Our clients' reviews are gathered in our Instagram story highlights. They will be published here soon.",
-    "placeholder": "Client review coming soon",
-    "cta": "Read the reviews on Instagram"
+    "title": "Client reviews",
+    "text": "Our clients' feedback is gathered in our Instagram story highlights.",
+    "cta": "Read the reviews"
   },
   "quote": {
     "kicker": "Request a quote",
-    "title": "Tell us about your reception",
-    "intro": "It takes two minutes. We'll come back to you quickly with a first proposal.",
+    "title": "Request a quote",
+    "intro": "Date, venue, guest count: a few questions, then WhatsApp opens with your request written out.",
     "progress": "Step {n} of {total}",
     "back": "Back",
     "next": "Continue",
@@ -334,7 +278,7 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Have a date in mind?",
+    "title": "Get in touch",
     "text": "Call us or message us on WhatsApp. We'll get back to you quickly.",
     "phone": "Phone",
     "whatsapp": "WhatsApp",
@@ -407,5 +351,69 @@
   "video": {
     "pause": "Pause the videos",
     "play": "Play the videos"
-  }
+  },
+  "receptions": {
+    "title": "Our receptions",
+    "more": "Discover",
+    "items": [
+      {
+        "id": "mariages",
+        "title": "Weddings",
+        "text": "Drinks reception, dinner and desserts, with service and table decor."
+      },
+      {
+        "id": "cocktails",
+        "title": "Cocktail parties",
+        "text": "Savoury and sweet canapés, dressed buffets and a fresh juice bar, for a few dozen or several hundred guests."
+      },
+      {
+        "id": "affaires",
+        "title": "Business events",
+        "text": "Seminars, launches, client lunches: punctual, discreet service."
+      },
+      {
+        "id": "familles",
+        "title": "Christenings and family",
+        "text": "Christenings, engagements, birthdays and brunches, at home or in a venue."
+      }
+    ]
+  },
+  "house": {
+    "title": "Food, venue and service, brought together by one house.",
+    "main": {
+      "title": "Weddings",
+      "text": "We prepare the drinks reception, the dinner and the dessert buffet, then serve right through to the last coffee.",
+      "cta": "Discover"
+    },
+    "side": [
+      {
+        "title": "Venue hire",
+        "text": "A reception venue in the Paris region, with catering and service in the same quote.",
+        "cta": "See the venue"
+      },
+      {
+        "title": "Decor and service",
+        "text": "Tableware, centrepieces, the couple's lounge, uniformed head waiters and staff.",
+        "cta": "Request a quote"
+      }
+    ]
+  },
+  "reassure": [
+    {
+      "title": "Paris and Île-de-France",
+      "text": "And anywhere in France on request"
+    },
+    {
+      "title": "Tailored menus",
+      "text": "Built with you, no set packages"
+    },
+    {
+      "title": "Table service",
+      "text": "Uniformed head waiters and staff"
+    },
+    {
+      "title": "Reply on WhatsApp",
+      "text": "+33 6 26 82 55 46"
+    }
+  ]
 }
